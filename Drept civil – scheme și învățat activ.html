@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drept civil – scheme și învățat activ</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1b19;--card:#fff;--bd:#e3dfd6;--ac:#2f5bd3;--mk:#fff0a8;--ok:#1f8a4c;--no:#c0392b;--mut:#6b6860;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161a;--fg:#e8e6e1;--card:#1d2026;--bd:#333843;--ac:#8fb0ff;--mk:#5a4a12;--ok:#5cd08a;--no:#ff8a7a;--mut:#9a978f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14161a;--fg:#e8e6e1;--card:#1d2026;--bd:#333843;--ac:#8fb0ff;--mk:#5a4a12;--ok:#5cd08a;--no:#ff8a7a;--mut:#9a978f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--bd);padding:10px 14px 8px}
+h1{font-size:18px;margin:0 0 8px}
+nav,.chips{display:flex;gap:6px;flex-wrap:wrap}
+button{font:inherit;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:6px 13px;cursor:pointer}
+button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+main{max-width:760px;margin:0 auto;padding:14px}
+.chips{margin-bottom:12px}
+.tree>ul{list-style:none;margin:0;padding:0}
+.tree>ul>li{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--ac);border-radius:10px;padding:10px 12px;margin:10px 0}
+.tree ul ul{list-style:none;margin:8px 0 2px;padding-left:12px;border-left:2px solid var(--bd)}
+.tree ul ul li{margin:5px 0;font-size:15px}
+.tree ul ul li::before{content:"→ ";color:var(--ac)}
+mark{background:var(--mk);color:inherit;border-radius:3px;padding:0 3px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:10px 0}
+.q{font-size:18px;font-weight:600}.a{margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.ok{border-color:var(--ok);color:var(--ok)}.no{border-color:var(--no);color:var(--no)}
+.opt{display:block;width:100%;text-align:left;border-radius:10px;margin:6px 0}
+.mut{color:var(--mut);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td,th{border:1px solid var(--bd);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--card)}
+.bar{height:8px;background:var(--bd);border-radius:99px;overflow:hidden;margin:6px 0 12px}.bar i{display:block;height:100%;background:var(--ok)}
+.wrap{overflow-x:auto}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:8px 0;padding:0 12px}summary{cursor:pointer;padding:10px 0}.df{padding:10px 0 12px;border-top:1px dashed var(--bd)}
+</style>
+</head>
+<body>
+<header><h1>⚖️ Drept civil – C1 până la C7</h1><nav id="nav"></nav></header>
+<main id="app"></main>
+<script>
+const m=s=>s.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/==(.+?)==/g,"<mark>$1</mark>");
+const T=a=>"<ul>"+a.map(x=>Array.isArray(x)?"<li>"+m(x[0])+(x[1]&&x[1].length?T(x[1]):"")+"</li>":"<li>"+m(x)+"</li>").join("")+"</ul>";
+const SC=[
+["C1 · Introducere",[
+["**Dreptul** – 3 sensuri",["drept ==obiectiv== = totalitatea normelor","drept ==subiectiv== = prerogativa ta într-un raport concret","==știința== dreptului"]],
+["**Public** ≠ **privat**",["public: statul ca autoritate → constituțional, administrativ, financiar, penal, procesual","privat: părți egale → civil, comercial, familie"]],
+["**Dreptul civil** = drept privat + ==drept comun==",["norme pentru relațiile ==patrimoniale== și ==nepatrimoniale== între persoane egale","Codul comercial (1887) abrogat prin art. 230 lit. c) din Legea 71/2011"]],
+["**Obiectul**",[["patrimoniale",["reale: proprietatea + dezmembrăminte ==U-U-A-S-S== (uzufruct, uz, abitație, servitute, superficie)","obligaționale: drepturi de creanță"]],["nepatrimoniale",["existența și integritatea","identificarea (nume, domiciliu)","creația intelectuală"]]]]]],
+["C2 · Delimitare și principii",[
+["**6 criterii** de delimitare",["==obiectul== (fundamental)","==metoda== = egalitatea juridică a părților (subsecvent)","auxiliare: subiectele, caracterul normelor, sancțiunile, principiile"]],
+["**Normele**",[["dispozitive",["permisive (permit)","supletive (se aplică dacă părțile n-au convenit altfel)"]],["imperative",["onerative („este obligat”)","prohibitive („este interzis”; ex.: locațiune max. 49 de ani)"]]]],
+["**Sancțiuni**",["civile = ==reparatorii==","penale = ==punitive=="]],
+["**Raportul cu alte ramuri**",["public: subordonare, deci ușor de delimitat","DIP: ==element de extraneitate== + normă conflictuală","familie: Cod 1864 → Codul familiei 1954 → înapoi în Cod 2011","comercial: art. 3, raporturile dintre ==profesioniști==","procesual civil: cum se aplică dreptul"]],
+["**5 principii**",["ocrotirea proprietății · egalitatea (art. 30)","îmbinarea intereselor individuale cu cele generale","ocrotirea drepturilor subiective · buna-credință"]]]],
+["C3 · Izvoarele dreptului civil",[
+["**Art. 1** – ordinea",["==lege== → ==uzanțe== → analogie → ==principii generale=="]],
+["**Legea**",["constituționale · ==organice== (regimul general al proprietății și moștenirii, art. 73 alin. 3 lit. m) · ordinare","HG = executarea legilor · ordonanțe simple (abilitare) · ==OUG== (urgență)","interne / internaționale · generale / speciale","acte ale autorităților locale: izvor dacă au norme civile"]],
+["**Codul civil**",["Codicele 1864 (în vigoare 1865)","Legea 287/2009, în vigoare la ==1 octombrie 2011==: Titlul preliminar + 7 cărți"]],
+["**Uzanțe · jurisprudență · doctrină**",["uzanțele: izvor, după lege","jurisprudența: ==în principiu nu== (excepții: CCR, RIL, hotărâri prealabile, CEDO, CJUE)","doctrina: ==nu== e izvor"]]]],
+["C4 · Legea civilă în timp, spațiu; interpretare",[
+["**Intrare și ieșire din vigoare**",["lege: la 3 zile de la publicare · ==OUG==: la publicare, cu depunere prealabilă la Cameră","abrogare: expresă / tacită · totală / parțială · desuetudinea ==nu== abrogă"]],
+["**Art. 6 C.civ.**",["alin. 2–4 → ==legea veche== (acte și fapte, acte nule, prescripții/uzucapiuni începute)","alin. 5–6 → ==legea nouă== (acte noi; efecte viitoare: stare și capacitate, căsătorie, filiație, adopție, întreținere, proprietate, vecinătate)"]],
+["**Principii**",["==neretroactivitate== (excepție: legea penală/contravențională mai favorabilă, art. 15)","==aplicare imediată== · ==ultraactivitate== (excepția)"]],
+["**În spațiu și asupra persoanelor**",["art. 7: acte centrale = tot teritoriul; locale = raza lor","element străin → norme conflictuale: persoană → legea națională · bun → locul unde e · contract → legea aleasă · UE are prioritate","egalitate (art. 30)"]],
+["**Interpretare**",["după forță: autentică · jurisdicțională · neoficială","după rezultat: literală · extensivă · restrictivă","metode: gramaticală · logică (==per a contrario, analogie, a fortiori, absurd==) · sistematică · istorică · teleologică · art. 10: limita analogiei"]]]],
+["C5 · Raportul juridic civil (I)",[
+["**Raport juridic civil** = relație socială + normă civilă",["3 caractere: social · volițional (simplu/dublu) · egalitate"]],
+["**Izvorul** – 3 întrebări",["voință? NU → ==eveniment==","intenție de efecte? DA → ==act juridic== · NU → fapt juridic","legal? ==licit== (==G-P-Î==: gestiune, plată nedatorată, îmbogățire) · ==ilicit== (delict civil)"]],
+["**Structura**: părți · conținut · obiect",["==absolut== (real, nepatrimonial): pasiv nedeterminat","==relativ== (creanță): ambii determinați"]],
+["**Pluralitate**",["coproprietate (cote) · devălmășie (fără cote)","conjunct (regula) · solidar · indivizibil"]],
+["**Schimbarea subiectelor**",["creditor: ==CSN== = cesiune · subrogație · novație","debitor: ==NPSP== = novație · preluare · stipulație · poprire"]],
+["**Capacitatea persoanei fizice**",["folosință: poți avea drepturi (toți, de la naștere)","exercițiu: sub 14 = ==reprezentant== · 14–18 = ==încuviințare== · 18+ = singur","Legea 140/2022: consiliere (3 ani) · tutelă specială (5 ani, până la 15)"]],
+["**Persoana juridică**",["folosință de la înregistrare · specialitate doar la cele fără scop lucrativ","exercițiu prin organele de administrare"]]]],
+["C6 · Raportul juridic civil (II)",[
+["**Conținut** = drepturi + obligații",["simplu (donația) · complex (contracte sinalagmatice)","dreptul subiectiv = ==posibilitate==; ≠ exercițiul lui"]],
+["**Drepturi subiective**",[["după opozabilitate",["absolut: pasiv nedeterminat, erga omnes","relativ (creanță): determinați, inter partes"]],["după conținut",["patrimoniale: ==real== (limitat, art. 551) · ==creanță== (nelimitat) · potestative","reale accesorii ==G-I-P-R== · prerogative: ==urmărire== + ==preferință==","nepatrimoniale: personal, necesibile"]],["după corelație și certitudine",["principal / accesoriu (accesoriul urmează principalul)","pur și simplu / afectat de ==T-C-S== (termen, condiție, sarcină)"]]]],
+["**Exercitare**",["bună-credință (art. 14) · scop social și economic","==abuz de drept== (art. 15): ca să păgubești sau excesiv · privește exercițiul · ≠ delict civil"]],
+["**Obligații**",["după obiect: a ==da== (transmite drept real) · a ==face== (⚠ predarea e de a face) · a nu face","==rezultat== vs ==mijloace== (art. 1481; medicul = mijloace)","după opozabilitate: obișnuită · ==scriptae in rem== (art. 1811) · ==propter rem==","după sancțiune: ==perfectă== · ==naturală== (nu ceri înapoi ce ai plătit de bunăvoie)"]],
+["**Obiectul** = conduita; ≠ conținutul (drepturile și obligațiile)"]]],
+["C7 · Bunurile",[
+["**Bun** (art. 535) = lucru, corporal sau necorporal, obiect al unui drept patrimonial",["patrimoniu = drepturi + datorii (universalitate juridică)","universalitate de fapt (art. 541): bunuri ale aceluiași proprietar, cu destinație comună"]],
+["**10 clasificări**",["corporale / necorporale","==mobile / imobile==: imobile prin natură, destinație, obiect · mobile prin natură, anticipație, determinarea legii","fungibile · consumptibile · divizibile (art. 543–545)","principale / accesorii (546) · în / scoase din circuit (nulitate absolută) · certe / de gen","frugifere (fructe naturale, industriale, civile; ≠ producte) · sesizabile / insesizabile"]],
+["**Reguli de ținut minte**",["voința părților schimbă calificarea ==într-un singur sens== (fungibil→nefungibil etc.)","art. 1273: cert → proprietate la acord; de gen → la individualizare","art. 1274: riscul rămâne la cel care predă, până la predare"]]]]
+];
+const PA=[["Act juridic","Fapt juridic","act: vrei efecte juridice; fapt: efectele vin din lege (geamul spart)"],["Absolut","Relativ","pasiv nedeterminat, erga omnes / ambii determinați, inter partes"],["Drept real","Drept de creanță","limitat (art. 551), urmărire + preferință / nelimitat"],["Capacitate de folosință","Capacitate de exercițiu","a avea drepturi, de la naștere / a semna singur (14 și 18 ani)"],["Reprezentare","Încuviințare","părintele semnează în locul copilului / copilul semnează cu acordul prealabil"],["Obligație de a da","Obligație de a face","a da = transmiți dreptul real; predarea bunului = a face"],["De rezultat","De mijloace","datorezi rezultatul / străduința (medicul)"],["Obligație perfectă","Obligație naturală","executare silită posibilă / ce plătești de bunăvoie nu ceri înapoi"],["Abuz de drept","Delict civil","drept exercitat contra scopului, poate lipsi prejudiciul / faptă ilicită, prejudiciu obligatoriu"],["Neretroactivitate","Ultraactivitate","legea nouă nu merge în trecut / legea veche se mai aplică situațiilor în curs"],["Novație","Cesiune","obligația veche se stinge și apare una nouă / aceeași creanță trece la altul"],["Coproprietate","Devălmășie","cote ideale / fără cote (soții)"],["Fructe","Producte","fără diminuarea substanței (uzufructuar) / cu diminuare (proprietar)"],["Norme dispozitive","Norme imperative","părțile pot deroga / nu pot"],["Fungibil","Consumptibil","înlocuibil după număr, măsură, greutate / se consumă la folosire"]];
+const CA=[
+[1,"Cele 3 sensuri ale „dreptului”","Obiectiv (normele), subiectiv (prerogativa persoanei), știința dreptului."],
+[1,"Public vs. privat – criteriul","Statul ca autoritate (public) / părți egale (privat)."],
+[1,"Ce înseamnă „drept comun”?","Noțiunile de bază ale celorlalte ramuri private sunt definite în dreptul civil, care se aplică dacă nu există regulă specială."],
+[1,"Obiectul dreptului civil","Relațiile patrimoniale și nepatrimoniale între persoane egale."],
+[1,"Dezmembrămintele proprietății (U-U-A-S-S)","Uzufruct, uz, abitație, servitute, superficie."],
+[2,"Criteriul fundamental, subsecvent și auxiliarele","Obiectul; metoda (egalitatea părților); auxiliare: subiecte, caracterul normelor, sancțiuni, principii."],
+[2,"Norme dispozitive vs. imperative","Dispozitive (permisive, supletive): părțile pot deroga. Imperative (onerative, prohibitive): nu."],
+[2,"Sancțiuni civile vs. penale","Civile: reparatorii. Penale: punitive."],
+[2,"Cine e profesionist (art. 3)?","Cel care exploatează o întreprindere (activitate organizată sistematic)."],
+[2,"Cele 5 principii ale dreptului civil","Ocrotirea proprietății; egalitatea; îmbinarea intereselor; ocrotirea drepturilor; buna-credință."],
+[3,"Izvoarele dreptului civil (art. 1)","Legea, uzanțele, principiile generale (+ analogia legii)."],
+[3,"Ce reglementează legile organice în civil?","Regimul general al proprietății și al moștenirii (art. 73 alin. 3 lit. m)."],
+[3,"Codul civil actual – act și intrare în vigoare","Legea 287/2009; în vigoare la 1 octombrie 2011."],
+[3,"Structura Codului civil","Titlul preliminar (art. 1–24) + 7 cărți."],
+[3,"Jurisprudența și doctrina – izvor?","Jurisprudența, în principiu nu (excepții: CCR, RIL, hotărâri prealabile, CEDO, CJUE). Doctrina nu."],
+[4,"Când intră în vigoare legea și OUG?","Legea: la 3 zile de la publicare. OUG: la publicare, cu depunere prealabilă la Cameră."],
+[4,"Abrogarea – tipuri","Expresă/tacită; totală/parțială. Desuetudinea nu abrogă."],
+[4,"Art. 6 alin. (2)–(4)","Acte și fapte juridice, acte nule, prescripții/decăderi/uzucapiuni începute: legea veche."],
+[4,"Art. 6 alin. (5)–(6)","Legea nouă: acte și situații noi + efectele viitoare ale stării și capacității, căsătoriei, filiației, adopției, întreținerii, proprietății, vecinătății."],
+[4,"Neretroactivitate – excepția constituțională","Legea penală sau contravențională mai favorabilă (art. 15 alin. 2)."],
+[4,"Norma interpretativă – efecte","Numai pentru viitor (art. 9 alin. 2)."],
+[4,"Legea civilă în spațiu (art. 7)","Acte centrale: tot teritoriul; locale: doar raza lor. Element străin → norme conflictuale (Cartea a VII-a)."],
+[4,"Metodele de interpretare","Gramaticală, logică (per a contrario, analogie, a fortiori, absurd), sistematică, istorică, teleologică."],
+[5,"Cele 3 întrebări ale schemei izvoarelor","Voință? (eveniment / acțiune) → intenție de efecte? (act / fapt) → legal? (licit / ilicit)."],
+[5,"Faptele licite (G-P-Î)","Gestiunea de afaceri, plata nedatorată, îmbogățirea fără justă cauză."],
+[5,"Schimbarea creditorului (CSN) și a debitorului (NPSP)","CSN: cesiune, subrogație, novație. NPSP: novație, preluare de datorie, stipulație pentru altul, poprire."],
+[5,"Capacitatea de exercițiu – treptele","Sub 14: lipsă (reprezentant); 14–18: restrânsă (încuviințare); 18+: deplină. La 16 ani, excepții: căsătorie, instanța de tutelă."],
+[5,"Legea 140/2022","Consiliere judiciară (parțial, restrânsă, max. 3 ani) și tutelă specială (total, lipsă, max. 5 ani, până la 15)."],
+[5,"Capacitatea persoanei juridice","Folosință de la înregistrare; specialitate doar la cele fără scop lucrativ (art. 206 alin. 2); exercițiu prin organe de administrare."],
+[6,"Drept absolut vs. relativ","Absolut: pasiv nedeterminat, erga omnes. Relativ: ambii determinați, inter partes."],
+[6,"Real vs. creanță – numărul","Reale: limitate (art. 551). Creanțe: nelimitate."],
+[6,"Reale accesorii (G-I-P-R) și prerogativele reale","Gaj, ipotecă, privilegii, retenție. Urmărire (ceri bunul) și preferință (ești plătit primul)."],
+[6,"Modalitățile (T-C-S)","Termen, condiție, sarcină."],
+[6,"Abuzul de drept (art. 15)","Exercitarea dreptului ca să păgubești pe altul sau excesiv și nerezonabil; privește exercițiul, nu existența dreptului."],
+[6,"Predarea bunului vândut – ce obligație?","De a face (a da = transmiterea proprietății)."],
+[6,"Obligația naturală (art. 2506 alin. 3)","Nu se execută silit, dar ce ai plătit de bunăvoie nu se cere înapoi (ex.: prescripție împlinită)."],
+[6,"Obiect vs. conținut","Conținut: drepturile și obligațiile. Obiect: conduita efectivă."],
+[7,"Definiția bunului (art. 535)","Lucruri, corporale sau necorporale, obiect al unui drept patrimonial."],
+[7,"Imobile / mobile – cele 3 feluri","Imobile: prin natură, destinație, determinarea legii. Mobile: prin natură, anticipație, determinarea legii."],
+[7,"Cum poate voința părților schimba calificarea?","Doar într-un sens: fungibil→nefungibil, consumptibil→neconsumptibil, divizibil→indivizibil."],
+[7,"Fructe vs. producte; cele 3 fructe","Fructe: fără diminuarea substanței (naturale, industriale, civile). Producte: cu diminuare."],
+[7,"Transmiterea proprietății la cert și la de gen (art. 1273)","Cert: la acordul de voință. De gen: la individualizare."],
+[7,"Riscul pieirii fortuite (art. 1274)","Până la predare îl suportă debitorul predării, chiar dacă proprietatea a trecut."]
+];
+const QZ=[
+["Predarea bunului vândut este obligație:",["de a face","de a da","de a nu face","naturală"]],
+["Subiectul pasiv la dreptul de proprietate este:",["nedeterminat","determinat","statul","doar proprietarul"]],
+["Un copil de 10 ani cumpără o înghețată. Actul este:",["valid (act mic, curent)","nul","valid doar cu acordul părinților","anulabil"]],
+["Aceeași creanță trece la altul prin:",["cesiune de creanță","novație","poprire","stipulație pentru altul"]],
+["Efectele viitoare ale proprietății născute sub legea veche sunt guvernate de:",["legea nouă (art. 6 alin. 6)","legea veche","legea aleasă de instanță","nicio lege"]],
+["O prescripție începută înainte de 2011 este supusă:",["legii vechi","Codului civil actual","legii alese de părți","legii instanței"]],
+["Abuzul de drept privește:",["exercițiul dreptului","existența dreptului","nașterea dreptului","stingerea dreptului"]],
+["Ipoteca este drept real:",["accesoriu","principal","nepatrimonial","potestativ"]],
+["Medicul datorează:",["străduința (mijloace)","vindecarea (rezultat)","a da","propter rem"]],
+["Gajul poate avea ca obiect:",["doar mobile corporale sau titluri materializate","orice bun","doar imobile","doar creanțe"]],
+["Un bun consumptibil poate deveni, prin voința părților:",["neconsumptibil","imobil","indivizibil","accesoriu"]],
+["Fructele civile se dobândesc:",["zi cu zi","la separare","la sfârșitul anului","la plată"]],
+["Normele prohibitive sunt:",["imperative, interzic o conduită","dispozitive, supletive","permisive","doar ale dreptului penal"]],
+["OUG intră în vigoare:",["la publicare, cu depunere prealabilă la Cameră","la 3 zile","după aprobarea Parlamentului","la 30 de zile"]],
+["Care NU este izvor al dreptului civil (art. 1)?",["doctrina","legea","uzanțele","principiile generale"]],
+["Persoana juridică fără scop lucrativ are:",["doar drepturile necesare scopului","orice drepturi","doar drepturi reale","niciun drept"]]
+];
+const PLAN=["Ziua 1: C1 + C2 (scheme, apoi fișe)","Ziua 2: C3 (izvoarele) + test de 10 întrebări","Ziua 3: C4 (legea în timp: art. 6; interpretarea)","Ziua 4: C5 (izvor, absolut/relativ, CSN/NPSP, capacitatea)","Ziua 5: C6 (drepturi, abuz, obligații)","Ziua 6: C7 (cele 10 clasificări) + toate perechile","Ziua 7: doar fișele „Încă nu” + un test, apoi somn"];
+const DEF=[
+[1,"Drept obiectiv (pozitiv)","Totalitatea regulilor de conduită care reglementează relațiile sociale dintre persoane, instituite sau recunoscute de stat și asigurate, la nevoie, prin forța de constrângere a statului; există independent de aplicarea lor la un moment dat."],
+[1,"Drept subiectiv","Facultatea (prerogativa) recunoscută de dreptul obiectiv unei persoane de a avea o anumită conduită și de a pretinde altora o conduită corespunzătoare, cu ajutorul statului la nevoie. Ex.: vânzătorul pretinde prețul."],
+[1,"Drept public / drept privat","Criteriul: calitatea în care intervine statul. **Public** = relațiile în care statul apare ca autoritate, titular al puterii publice. **Privat** = relațiile dintre particulari, pentru interese private."],
+[1,"Dreptul civil","Ramura de drept privat care cuprinde normele ce reglementează relațiile sociale **patrimoniale și nepatrimoniale** în care părțile se găsesc pe poziție juridică de egalitate, precum și condiția juridică a subiectelor de drept."],
+[1,"Drept comun","Noțiunile de bază ale celorlalte ramuri de drept privat sunt definite în dreptul civil, iar el se aplică ori de câte ori norma specială nu dispune (art. 2 alin. 2 C.civ.)."],
+[1,"Egalitatea juridică a părților","Niciuna nu are mijloace proprii de constrângere asupra celeilalte; fiecare apelează la forța statului. Nu înseamnă egalitate în drepturi și obligații."],
+[1,"Relații patrimoniale / nepatrimoniale","**Patrimoniale**: evaluabile în bani; legate de drepturile reale (proprietate și dezmembrăminte: uzufruct, uz, abitație, servitute, superficie) sau obligaționale (creanță). **Nepatrimoniale**: fără conținut economic: existența și integritatea persoanei, identificarea ei, creația intelectuală."],
+[2,"Criteriile de delimitare a dreptului civil","**Obiectul de reglementare** (fundamental, determinant); **metoda** (subsecventă: egalitatea juridică); auxiliare: calitatea subiectelor, caracterul normelor, specificul sancțiunilor, principiile."],
+[2,"Profesionist (art. 3 alin. 2–3)","Cel care exploatează o întreprindere, adică exercită sistematic o activitate organizată de producere, administrare ori înstrăinare de bunuri sau de prestare de servicii, cu sau fără scop lucrativ."],
+[2,"Normă dispozitivă","Lasă părților stabilirea conduitei. **Permisivă**: permite o conduită, fără s-o impună. **Supletivă**: se aplică numai dacă părțile n-au convenit altfel."],
+[2,"Normă imperativă","Obligatorie; părțile nu pot deroga. **Onerativă**: impune o conduită (art. 1673: vânzătorul transmite proprietatea). **Prohibitivă**: interzice (art. 1783: locațiunea nu se încheie pentru mai mult de 49 de ani)."],
+[2,"Sancțiunea civilă","Are caracter **reparator**: repararea pagubei și restabilirea situației anterioare. Sancțiunea penală are caracter **punitiv** (pedeapsă)."],
+[2,"Element de extraneitate; normă conflictuală","Element străin al raportului (cetățenia unei părți, bunul aflat în străinătate, locul încheierii sau executării). Norma conflictuală indică legea aplicabilă unui astfel de raport (dreptul internațional privat)."],
+[2,"Evicțiunea","Pierderea proprietății lucrului, total sau parțial, ori tulburarea cumpărătorului în exercitarea prerogativelor de proprietar."],
+[2,"Principiile dreptului civil","Ocrotirea proprietății; egalitatea în fața legii civile (art. 30); îmbinarea intereselor individuale cu cele generale; ocrotirea și garantarea drepturilor subiective; buna-credință (art. 14: drepturile și obligațiile se exercită cu bună-credință, în acord cu ordinea publică și bunele moravuri)."],
+[3,"Izvor de drept civil","Forma specifică de exprimare a normelor dreptului civil (sens formal). Sensul material: condițiile materiale de existență care generează normele. Art. 1 alin. 1: legea, uzanțele, principiile generale."],
+[3,"Lege lato / stricto sensu","**Lato**: orice act normativ cu dispoziții de drept civil, indiferent de organul emitent și denumire. **Stricto**: doar actele Parlamentului numite „lege”."],
+[3,"Lege constituțională, organică, ordinară","Constituțională: Constituția și legile de revizuire. Organică: domenii de maximă importanță; în civil, regimul general al proprietății și moștenirii (art. 73 alin. 3 lit. m). Ordinară: orice altă lege a Parlamentului."],
+[3,"HG, ordonanță simplă, OUG","**HG**: organizarea executării legilor. **Ordonanță simplă**: în baza unei legi de abilitare, în domenii care nu țin de legile organice. **OUG**: numai în situații extraordinare, cu motivarea urgenței."],
+[3,"Uzanțele","Obiceiul (cutuma) și uzurile profesionale (art. 1 alin. 6). Sunt izvor doar dacă sunt conforme ordinii publice și bunelor moravuri. Se aplică în cazurile neprevăzute de lege; în materiile reglementate, doar dacă legea trimite la ele."],
+[3,"Jurisprudența","În principiu nu e izvor: instanțele aplică, nu creează dreptul (art. 5 alin. 4 C.proc.civ.; hotărârea produce efecte doar între părți, art. 435). Excepții: CCR, RIL, hotărâri prealabile, CEDO, CJUE. Doctrina nu e izvor."],
+[3,"Codul civil","Codicele civil (1864, în vigoare 1865, după Codul Napoleon). Codul actual: Legea 287/2009, în vigoare la 1 octombrie 2011; Titlul preliminar (art. 1–24) + 7 cărți."],
+[4,"Aplicarea legii civile","Transpunerea în practică, în raporturi concrete, a regulilor din norma civilă; se face sub 3 aspecte: în timp, în spațiu, cu privire la persoane."],
+[4,"Intrarea în vigoare","Lege și ordonanță simplă: la 3 zile calendaristice de la publicare (expiră la 24:00) sau la dată ulterioară din text. OUG: la publicare, sub condiția depunerii prealabile la Cameră. Alte acte: la publicare."],
+[4,"Abrogarea","Ieșirea legii din vigoare. Expresă (legea nouă numește legea veche) sau tacită (reguli incompatibile); totală sau parțială. Definitivă (art. 64 L. 24/2000). Desuetudinea nu abrogă."],
+[4,"Neretroactivitatea","Legea dispune numai pentru viitor (art. 15 alin. 2 Constituție; art. 6 alin. 1 C.civ.) și nu poate reglementa relații născute, modificate sau stinse înainte. Excepție: legea penală sau contravențională mai favorabilă."],
+[4,"Aplicarea imediată; ultraactivitatea","**Aplicarea imediată**: legea nouă se aplică de îndată situațiilor ivite după intrarea ei și efectelor lor (art. 6 alin. 5–6). **Ultraactivitatea**: supraviețuirea vremelnică a legii vechi, aplicată situațiilor în curs; excepție de la aplicarea imediată."],
+[4,"Art. 6 alin. (2)–(4)","Actele și faptele juridice, actele nule sau anulabile, prescripțiile, decăderile și uzucapiunile începute și neîmplinite rămân supuse **legii vechi**."],
+[4,"Legea civilă în spațiu","Intern (art. 7): actele centrale se aplică pe tot teritoriul, cele locale doar în raza lor. Internațional: la raporturile cu element de extraneitate se aplică normele conflictuale (art. 8; Cartea a VII-a); prioritate au tratatele și dreptul UE."],
+[4,"Interpretarea legii civile","Operațiunea logico-rațională de lămurire a conținutului și sensului normelor, pentru justa lor aplicare. Oficială: **autentică** (de la emitent, art. 9 alin. 1–2, doar pentru viitor) sau **jurisdicțională** (instanța, art. 9 alin. 3); neoficială (doctrina, avocatul)."],
+[4,"Rezultatul și metodele interpretării","Literală (textul și situațiile coincid); extensivă (sens mai larg, nu la enumerări limitative și excepții); restrictivă (arie mai îngustă). Metode: gramaticală; logică (per a contrario, analogie, a fortiori, reducerea la absurd); sistematică; istorică; teleologică. Art. 10: limita analogiei."],
+[5,"Raportul juridic civil","Relație socială, patrimonială sau nepatrimonială, reglementată de norma de drept civil, în care părțile sunt pe poziție de egalitate juridică. Caractere: social, volițional (simplu sau dublu), egalitate."],
+[5,"Izvorul raportului concret","Faptul juridic lato sensu: faptele, evenimentele sau acțiunile de care legea civilă leagă nașterea, modificarea sau stingerea unui raport juridic civil concret. Nu se confundă cu izvoarele dreptului civil."],
+[5,"Act juridic / fapt juridic","**Act**: acțiune omenească cu intenția de a produce efecte juridice (contract, testament). **Fapt** (stricto sensu): acțiune fără acea intenție, ale cărei efecte vin din lege (distrugerea bunului), plus evenimentele."],
+[5,"Fapte licite și ilicite","**Licite**: gestiunea de afaceri (art. 1330–1340), plata nedatorată (1341–1344), îmbogățirea fără justă cauză (1345–1348). **Ilicit**: acțiune cu încălcarea legii (delict civil)."],
+[5,"Elementele raportului; determinarea subiectelor","Cumulativ: **părțile**, **conținutul** (drepturi și obligații corelative), **obiectul** (conduita). Drepturi **absolute**: activ determinat, pasiv nedeterminat. **Relative**: activ și pasiv determinați."],
+[5,"Pluralitatea subiectelor","Activă, pasivă sau mixtă. Coproprietate (cote ideale, art. 634) / devălmășie (fără cote, art. 667). Obligații: conjunctă (divizibilă, regula art. 1424), solidară (oricare cere sau plătește tot), indivizibilă (obiect indivizibil)."],
+[5,"Schimbarea creditorului (CSN)","**Cesiunea de creanță** (art. 1566–1592): creditorul transmite creanța unei alte persoane. **Subrogația personală** (1593–1598): terțul plătește și devine creditor. **Novația** (1609): vechea obligație se stinge, e înlocuită cu una nouă."],
+[5,"Schimbarea debitorului (NPSP)","Novația prin schimbare de debitor (art. 1609 alin. 2); preluarea de datorie (1609–1614); stipulația pentru altul (1284); poprirea (creditorul urmărește sumele pe care un terț le datorează debitorului său)."],
+[5,"Capacitatea civilă","Aptitudinea generală de a fi titular de drepturi și obligații civile. **De folosință** (art. 34): de a avea drepturi și obligații. **De exercițiu** (art. 37): de a încheia singur acte juridice civile."],
+[5,"Capacitatea de exercițiu a persoanei fizice","**Deplină**: la 18 ani (art. 38), minorul căsătorit, la 16 ani cu instanța de tutelă (art. 39–40). **Restrânsă** (art. 41): 14–18 ani, consilierea judiciară; actele cu încuviințare prealabilă. **Lipsă** (art. 43): sub 14 ani, tutela specială; actele prin reprezentant legal."],
+[5,"Persoana juridică (art. 187)","Colectivitate cu organizare de sine stătătoare, patrimoniu propriu, afectat unui scop licit și moral, în acord cu interesul general. Folosință de la înregistrare (art. 205); specialitate doar la cele fără scop lucrativ (art. 206 alin. 2); exercițiu prin organele de administrare (art. 209)."],
+[6,"Dreptul subiectiv civil","Posibilitatea subiectului activ, recunoscută de dreptul civil obiectiv, de a avea, în limitele legii, o anumită conduită și de a pretinde subiectului pasiv să dea, să facă sau să nu facă ceva, la nevoie cu forța coercitivă a statului. Nu se confundă cu exercițiul lui."],
+[6,"Drept absolut / relativ","**Absolut**: titularul îl exercită singur; subiect pasiv nedeterminat (toți ceilalți), obligație negativă generală, erga omnes (drepturile reale și nepatrimoniale). **Relativ**: creditorul cere debitorului; ambii determinați; inter partes."],
+[6,"Dreptul real (jus in re)","Drept patrimonial în virtutea căruia titularul își exercită atributele (posesia, folosința, dispoziția) asupra unui bun, direct și nemijlocit. Absolut, limitat ca număr (art. 551). Prerogative: **urmărire** și **preferință**."],
+[6,"Dreptul de creanță (jus ad personam)","Drept patrimonial prin care creditorul poate pretinde debitorului să dea, să facă sau să nu facă ceva. Relativ, nelimitat ca număr; izvor: act juridic sau fapt juridic licit ori ilicit."],
+[6,"Dreptul potestativ","Puterea titularului de a influența unilateral și discreționar o situație juridică preexistentă (o modifică, o stinge sau creează alta). Drept de opțiune; categorie intermediară (nici real, nici de creanță)."],
+[6,"Drepturi nepatrimoniale","Fără conținut economic, necesibile, exercitate doar personal. 3 categorii: existența și integritatea; identificarea; creația intelectuală. Art. 58: drepturile personalității."],
+[6,"Drept principal / accesoriu","Principal: existență de sine stătătoare. Accesoriu: soarta lui depinde de a principalului (accesorium sequitur principale): ipoteca, gajul, clauza penală, arvuna, fideiusiunea."],
+[6,"Drept pur și simplu / afectat de modalități","Pur și simplu: efecte imediat, definitiv, irevocabil. Afectat: existența sau exercițiul depind de un eveniment viitor (termen, condiție, sarcină)."],
+[6,"Abuzul de drept (art. 15)","Exercitarea unui drept în scopul de a vătăma sau păgubi pe altul ori într-un mod excesiv și nerezonabil, contrar bunei-credințe. Privește exercițiul, nu existența dreptului. Sancțiuni: refuzul concursului statului; despăgubiri."],
+[6,"Obligația civilă","Îndatorirea subiectului pasiv de a avea o conduită corespunzătoare dreptului corelativ (a da, a face, a nu face), care poate fi impusă prin constrângere. Sensuri: îndatorirea; raportul obligațional; înscrisul constatator."],
+[6,"A da / a face / a nu face","**A da**: a constitui sau transmite un drept real. **A face**: orice prestație pozitivă (predarea bunului vândut). **A nu face**: abținere."],
+[6,"De rezultat / de mijloace (art. 1481)","**Rezultat**: debitorul trebuie să procure rezultatul promis. **Mijloace**: debitorul depune toată diligența, fără a garanta rezultatul (medicul)."],
+[6,"Scriptae in rem / propter rem","**Scriptae in rem**: obligație opozabilă și terților, legată de posesia lucrului (art. 1811). **Propter rem**: revine deținătorului unui bun, ca accesoriu al unui drept real."],
+[6,"Obligație perfectă / naturală","Perfectă: executarea poate fi cerută cu forța statului. Naturală (imperfectă): nu se poate executa silit, dar plata făcută de bunăvoie nu se restituie (art. 2506 alin. 3)."],
+[6,"Obiectul raportului juridic","Conduita părților: acțiunea sau inacțiunea la care e îndreptățit subiectul activ și de care e ținut cel pasiv. Nu se confundă cu conținutul (drepturile și obligațiile)."],
+[7,"Bun (art. 535)","Lucrurile, corporale sau necorporale, care constituie obiectul unui drept patrimonial. Stricto sensu: doar lucrurile; lato sensu: și drepturile privitoare la ele."],
+[7,"Patrimoniu (art. 31 alin. 1)","Totalitatea drepturilor și datoriilor evaluabile în bani ale unei persoane: latura activă (drepturi) și pasivă (obligații). Universalitate juridică."],
+[7,"Universalitate de fapt (art. 541)","Ansamblul bunurilor care aparțin aceleiași persoane și au o destinație comună stabilită prin voința ei sau prin lege; pot fi și separat obiect de acte juridice."],
+[7,"Corporal / necorporal","Corporale: existență materială, percepute de simțuri. Necorporale: existență abstractă (creanțe, acțiuni, părți sociale, drepturi intelectuale)."],
+[7,"Bunuri imobile","Prin natură (art. 537): terenuri, construcții, plantații, tot ce e încorporat permanent. Prin destinație (art. 538). Prin obiectul la care se aplică (art. 542 alin. 1): drepturile reale asupra imobilelor."],
+[7,"Bunuri mobile","Prin natură (art. 539): tot ce legea nu consideră imobil, energia, undele. Prin anticipație (art. 540): imobile tratate ca mobile în vederea detașării. Prin determinarea legii (art. 542 alin. 2): creanțe, drepturi reale asupra mobilelor, titluri, drepturi intelectuale."],
+[7,"Fungibil / nefungibil (art. 543)","Fungibile: determinabile după număr, măsură sau greutate, înlocuibile în executarea unei obligații. Nefungibile: nu pot fi înlocuite; debitorul se liberează doar dând bunul datorat."],
+[7,"Consumptibil; divizibil (art. 544–545)","**Consumptibil**: bun mobil a cărui folosire obișnuită implică consumarea sau înstrăinarea substanței. **Divizibil**: poate fi împărțit în natură fără a-și schimba destinația. Contrariile: neconsumptibil, indivizibil."],
+[7,"Principal / accesoriu (art. 546)","Accesoriu: destinat stabil și exclusiv întrebuințării economice a altui bun, cât timp satisface această utilizare; destinația o stabilește proprietarul ambelor bunuri. Urmează soarta principalului."],
+[7,"Circuit civil","Bunurile în circuit pot fi dobândite și înstrăinate liber (unele cu restricții). Cele scoase din circuit sunt inalienabile (art. 136 alin. 3 Constituție); actul de vânzare e nul absolut."],
+[7,"Cert / de gen","Cert (res certa): individualizat prin însușiri proprii. De gen (res genera): privit prin caracterele categoriei, individualizat prin numărare, măsurare, cântărire. Proprietatea trece la acord (cert) sau la individualizare (de gen, art. 1273)."],
+[7,"Fructe și producte (art. 548–549)","Fructe: produse care derivă din folosirea bunului, fără diminuarea substanței (naturale, industriale, civile). Producte: obținute cu consumarea sau diminuarea substanței."],
+[7,"Sesizabil / insesizabil","Sesizabile: pot fi urmărite silit (regula). Insesizabile: doar în cazurile legii (art. 727 CPC; bunurile proprietate publică, art. 861 C.civ.)."]
+];
+let K={};try{K=JSON.parse(localStorage.getItem("civK")||"{}")}catch(e){}
+const sv=()=>{try{localStorage.setItem("civK",JSON.stringify(K))}catch(e){}};
+let v="s",dd=0,ci=0,F={c:0,u:0,i:0,s:0},Q=null;
+const sh=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const nav=[["s","Scheme"],["d","Definiții"],["p","Perechi"],["f","Fișe"],["q","Test"],["z","Plan"]];
+function deck(){return CA.map((c,i)=>i).filter(i=>(!F.c||CA[i][0]==F.c)&&(!F.u||!K[i]))}
+function newQ(){const l=sh(QZ).slice(0,10).map(q=>({q:q[0],o:sh(q[1].map((t,i)=>[t,i==0]))}));Q={l,i:0,s:0,p:-1}}
+function render(){
+ $nav.innerHTML=nav.map(n=>`<button data-a="v" data-v="${n[0]}" class="${v==n[0]?"on":""}">${n[1]}</button>`).join("");
+ let h="";
+ if(v=="s"){h=`<div class="chips">${SC.map((s,i)=>`<button data-a="c" data-v="${i}" class="${ci==i?"on":""}">C${i+1}</button>`).join("")}</div><h2>${SC[ci][0]}</h2><div class="tree">${T(SC[ci][1])}</div><p class="mut">Galbenul = ce trebuie ținut minte. Acoperă schema și refă-o din memorie.</p>`}
+ if(v=="d"){h=`<div class="chips"><button data-a="dd" data-v="0" class="${!dd?"on":""}">Toate</button>${[1,2,3,4,5,6,7].map(i=>`<button data-a="dd" data-v="${i}" class="${dd==i?"on":""}">C${i}</button>`).join("")}<button data-a="da">Deschide tot</button><button data-a="dx">Închide tot</button></div><p class="mut">Spune definiția cu voce tare, apoi deschide termenul și compar-o cu cea de aici.</p>${DEF.filter(d=>!dd||d[0]==dd).map(d=>`<details><summary><b>${d[1]}</b> <span class="mut">C${d[0]}</span></summary><div class="df">${m(d[2])}</div></details>`).join("")}`}
+ if(v=="p"){h=`<p class="mut">Cele mai întrebate perechi. Spune cu voce tare diferența înainte să te uiți la a treia coloană.</p><div class="wrap"><table><tr><th>A</th><th>B</th><th>Diferența</th></tr>${PA.map(p=>`<tr><td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td></tr>`).join("")}</table></div>`}
+ if(v=="f"){const d=deck(),kn=Object.keys(K).length,pos=d.length?F.i%d.length:0,cur=d[pos];
+  h=`<div class="chips"><button data-a="fc" data-v="0" class="${!F.c?"on":""}">Toate</button>${[1,2,3,4,5,6,7].map(i=>`<button data-a="fc" data-v="${i}" class="${F.c==i?"on":""}">C${i}</button>`).join("")}<button data-a="fu" class="${F.u?"on":""}">Doar „Încă nu”</button><button data-a="fr">Reset</button></div><div class="mut">Știu ${kn} din ${CA.length}</div><div class="bar"><i style="width:${kn/CA.length*100}%"></i></div>`;
+  if(!d.length)h+=`<div class="card">Nicio fișă aici. Toate sunt marcate „Știu” 🎉</div>`;
+  else h+=`<div class="card"><div class="mut">C${CA[cur][0]} · ${pos+1}/${d.length}</div><div class="q">${CA[cur][1]}</div>${F.s?`<div class="a">${CA[cur][2]}</div><div class="row"><button class="ok" data-a="k" data-v="${cur}">Știu</button><button class="no" data-a="n" data-v="${cur}">Încă nu</button></div>`:`<div class="row"><button data-a="s">Arată răspunsul</button></div>`}</div>`}
+ if(v=="q"){if(!Q)newQ();
+  if(Q.i>=Q.l.length)h=`<div class="card"><div class="q">Scor: ${Q.s} din ${Q.l.length}</div><p>${Q.s>=9?"Excelent.":Q.s>=6?"Bine. Reia fișele „Încă nu”.":"Mai repetă schemele și perechile, apoi încearcă iar."}</p><div class="row"><button data-a="nq">Test nou</button></div></div>`;
+  else{const x=Q.l[Q.i];h=`<div class="mut">Întrebarea ${Q.i+1}/${Q.l.length}</div><div class="card"><div class="q">${x.q}</div>${x.o.map((o,i)=>`<button class="opt ${Q.p>=0?(o[1]?"ok":i==Q.p?"no":""):""}" data-a="o" data-v="${i}" ${Q.p>=0?"disabled":""}>${o[0]}</button>`).join("")}${Q.p>=0?`<div class="row"><button data-a="nx">Următoarea</button></div>`:""}</div>`}}
+ if(v=="z"){h=`<p>Examenul peste o săptămână: câte o parte pe zi, 40–60 de minute.</p>${PLAN.map(p=>`<div class="card">${p}</div>`).join("")}<p class="mut">Regula: în fiecare zi, 10 minute din ce ai făcut ieri, din memorie.</p>`}
+ $app.innerHTML=h;
+}
+const $nav=document.getElementById("nav"),$app=document.getElementById("app");
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,x=b.dataset.v;
+ if(a=="v"){v=x;if(x=="q")Q=null}
+ if(a=="c")ci=+x;
+ if(a=="dd")dd=+x;
+ if(a=="da"){document.querySelectorAll("details").forEach(d=>d.open=true);return}
+ if(a=="dx"){document.querySelectorAll("details").forEach(d=>d.open=false);return}
+ if(a=="fc"){F.c=+x;F.i=0;F.s=0}
+ if(a=="fu"){F.u=F.u?0:1;F.i=0;F.s=0}
+ if(a=="fr"){K={};sv();F.i=0;F.s=0}
+ if(a=="s")F.s=1;
+ if(a=="k"){K[x]=1;sv();F.s=0;if(!F.u)F.i++}
+ if(a=="n"){delete K[x];sv();F.s=0;F.i++}
+ if(a=="o"){Q.p=+x;if(Q.l[Q.i].o[+x][1])Q.s++}
+ if(a=="nx"){Q.i++;Q.p=-1}
+ if(a=="nq")newQ();
+ render();window.scrollTo({top:0})});
+render();
+</script>
+</body>
+</html>
