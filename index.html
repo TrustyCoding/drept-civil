@@ -3,48 +3,682 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Drept civil – scheme și învățat activ</title>
+<title>Drept civil – C1–C7 & Grile Examen</title>
 <style>
-:root{--bg:#fbfaf7;--fg:#1c1b19;--card:#fff;--bd:#e3dfd6;--ac:#2f5bd3;--mk:#fff0a8;--ok:#1f8a4c;--no:#c0392b;--mut:#6b6860;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161a;--fg:#e8e6e1;--card:#1d2026;--bd:#333843;--ac:#8fb0ff;--mk:#5a4a12;--ok:#5cd08a;--no:#ff8a7a;--mut:#9a978f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#14161a;--fg:#e8e6e1;--card:#1d2026;--bd:#333843;--ac:#8fb0ff;--mk:#5a4a12;--ok:#5cd08a;--no:#ff8a7a;--mut:#9a978f;color-scheme:dark}
+:root{
+  --bg:#fbfaf7;--fg:#1c1b19;--card:#fff;--bd:#e3dfd6;--ac:#2f5bd3;--ac-soft:#eef3ff;
+  --mk:#fff0a8;--ok:#1f8a4c;--ok-soft:#eaf7ef;--no:#c0392b;--no-soft:#fdeeed;
+  --mut:#6b6860;--warn:#b45309;--warn-soft:#fef3c7;
+  color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161a;--fg:#e8e6e1;--card:#1d2026;--bd:#333843;--ac:#8fb0ff;--ac-soft:#1e2942;
+    --mk:#5a4a12;--ok:#5cd08a;--ok-soft:#143020;--no:#ff8a7a;--no-soft:#381c1a;
+    --mut:#9a978f;--warn:#fbbf24;--warn-soft:#3a2a0a;
+    color-scheme:dark
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161a;--fg:#e8e6e1;--card:#1d2026;--bd:#333843;--ac:#8fb0ff;--ac-soft:#1e2942;
+  --mk:#5a4a12;--ok:#5cd08a;--ok-soft:#143020;--no:#ff8a7a;--no-soft:#381c1a;
+  --mut:#9a978f;--warn:#fbbf24;--warn-soft:#3a2a0a;
+  color-scheme:dark
+}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--bd);padding:10px 14px 8px}
-h1{font-size:18px;margin:0 0 8px}
-nav,.chips{display:flex;gap:6px;flex-wrap:wrap}
-button{font:inherit;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:6px 13px;cursor:pointer}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:20}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);border-bottom:1px solid var(--bd);padding:10px 14px 10px}
+.head-top{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:820px;margin:0 auto 8px}
+h1{font-size:17px;margin:0;line-height:1.25}
+h2{font-size:19px;margin:14px 0 10px;line-height:1.3}
+h3{font-size:16px;margin:14px 0 8px;line-height:1.35}
+nav{display:flex;gap:6px;flex-wrap:wrap;max-width:820px;margin:0 auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+button{font:inherit;font-size:14px;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:7px 13px;cursor:pointer;transition:background .15s,border-color .15s,transform .06s;min-height:36px}
+button:active{transform:scale(.98)}
 button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
-main{max-width:760px;margin:0 auto;padding:14px}
-.chips{margin-bottom:12px}
+button:disabled{opacity:.65;cursor:default;transform:none}
+.theme-btn{padding:6px 11px;font-size:13px;white-space:nowrap}
+main{max-width:820px;margin:0 auto;padding:14px 14px 40px}
+
+/* Cards & Typography */
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:12px 0}
+.q{font-size:17px;font-weight:600;line-height:1.45}
+.a{margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.row-between{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.mut{color:var(--mut);font-size:14px}
+mark{background:var(--mk);color:inherit;border-radius:3px;padding:0 3px}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid var(--bd);background:var(--bg);color:var(--mut)}
+.badge-speta{background:var(--warn-soft);color:var(--warn);border-color:var(--warn)}
+.badge-ac{background:var(--ac-soft);color:var(--ac);border-color:var(--ac)}
+
+/* Progress bar */
+.bar{height:8px;background:var(--bd);border-radius:99px;overflow:hidden;margin:6px 0 12px}
+.bar i{display:block;height:100%;background:var(--ok);transition:width .25s ease}
+
+/* Grile Options */
+.opt{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;border-radius:12px;padding:12px 14px;margin:8px 0;font-size:15px;line-height:1.45;background:var(--card);border:1.5px solid var(--bd)}
+.opt-letter{flex:0 0 26px;height:26px;border-radius:8px;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px;background:var(--bg)}
+.opt.sel{border-color:var(--ac);background:var(--ac-soft)}
+.opt.sel .opt-letter{background:var(--ac);color:#fff;border-color:var(--ac)}
+.opt.ok-sel{border-color:var(--ok);background:var(--ok-soft);color:var(--fg)}
+.opt.ok-sel .opt-letter{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.ok-miss{border:2px dashed var(--ok);background:var(--ok-soft);color:var(--fg)}
+.opt.ok-miss .opt-letter{border-color:var(--ok);color:var(--ok);background:var(--card)}
+.opt.no-sel{border-color:var(--no);background:var(--no-soft);color:var(--fg)}
+.opt.no-sel .opt-letter{background:var(--no);color:#fff;border-color:var(--no)}
+.verdict{padding:10px 14px;border-radius:10px;font-weight:600;margin:12px 0 10px;font-size:15px}
+.verdict.v-ok{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+.verdict.v-no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.exp-box{margin-top:10px;padding-top:10px;border-top:1px dashed var(--bd)}
+.exp-item{margin:7px 0;font-size:14.5px;line-height:1.5;padding:7px 10px;border-radius:8px;background:var(--bg);border-left:3px solid var(--bd)}
+.exp-item.exp-ok{border-left-color:var(--ok)}
+.exp-item.exp-no{border-left-color:var(--no)}
+.btn-primary{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:600}
+.ok{border-color:var(--ok);color:var(--ok)}
+.no{border-color:var(--no);color:var(--no)}
+
+/* Tree schemes */
 .tree>ul{list-style:none;margin:0;padding:0}
 .tree>ul>li{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--ac);border-radius:10px;padding:10px 12px;margin:10px 0}
 .tree ul ul{list-style:none;margin:8px 0 2px;padding-left:12px;border-left:2px solid var(--bd)}
 .tree ul ul li{margin:5px 0;font-size:15px}
 .tree ul ul li::before{content:"→ ";color:var(--ac)}
-mark{background:var(--mk);color:inherit;border-radius:3px;padding:0 3px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:10px 0}
-.q{font-size:18px;font-weight:600}.a{margin-top:12px;padding-top:12px;border-top:1px dashed var(--bd)}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.ok{border-color:var(--ok);color:var(--ok)}.no{border-color:var(--no);color:var(--no)}
-.opt{display:block;width:100%;text-align:left;border-radius:10px;margin:6px 0}
-.mut{color:var(--mut);font-size:14px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-td,th{border:1px solid var(--bd);padding:7px 9px;vertical-align:top;text-align:left}
-th{background:var(--card)}
-.bar{height:8px;background:var(--bd);border-radius:99px;overflow:hidden;margin:6px 0 12px}.bar i{display:block;height:100%;background:var(--ok)}
-.wrap{overflow-x:auto}
-details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:8px 0;padding:0 12px}summary{cursor:pointer;padding:10px 0}.df{padding:10px 0 12px;border-top:1px dashed var(--bd)}
+
+/* Tables & Details */
+.wrap{overflow-x:auto;margin:10px 0;border-radius:10px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--card)}
+td,th{border-bottom:1px solid var(--bd);border-right:1px solid var(--bd);padding:8px 10px;vertical-align:top;text-align:left}
+td:last-child,th:last-child{border-right:none}
+tr:last-child td{border-bottom:none}
+th{background:var(--bg);font-weight:600}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin:8px 0;padding:0 12px}
+summary{cursor:pointer;padding:10px 0;font-size:15px}
+.df{padding:10px 0 12px;border-top:1px dashed var(--bd);font-size:15px}
+
+/* Aprofundare callouts & visual steps */
+.callout{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:11px 13px;margin:10px 0;font-size:14.5px}
+.callout b{color:var(--warn)}
+.steps{display:grid;gap:8px;margin:10px 0}
+.step{background:var(--bg);border:1px solid var(--bd);border-left:4px solid var(--ac);border-radius:10px;padding:9px 12px;font-size:14.5px}
+.scale-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:10px 0}
+.scale-item{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px;font-size:13.5px}
+.scale-item strong{display:block;margin-bottom:4px;font-size:14px}
+.q-dots{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}
+.q-dot{width:28px;height:28px;padding:0;min-height:28px;border-radius:8px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+.q-dot.cur{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac-soft)}
+.q-dot.d-ok{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
+.q-dot.d-no{background:var(--no-soft);color:var(--no);border-color:var(--no)}
 </style>
 </head>
 <body>
-<header><h1>⚖️ Drept civil – C1 până la C7</h1><nav id="nav"></nav></header>
+<header>
+  <div class="head-top">
+    <h1>⚖️ Drept civil – C1–C7 &amp; Grile Examen</h1>
+    <button id="themeBtn" class="theme-btn" type="button" aria-label="Schimbă tema">🌙 Mod</button>
+  </div>
+  <nav id="nav"></nav>
+</header>
 <main id="app"></main>
+
 <script>
-const m=s=>s.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/==(.+?)==/g,"<mark>$1</mark>");
-const T=a=>"<ul>"+a.map(x=>Array.isArray(x)?"<li>"+m(x[0])+(x[1]&&x[1].length?T(x[1]):"")+"</li>":"<li>"+m(x)+"</li>").join("")+"</ul>";
+/* ====== HELPERS ====== */
+const m = s => s.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/==(.+?)==/g, "<mark>$1</mark>");
+const T = a => "<ul>" + a.map(x => Array.isArray(x) ? "<li>" + m(x[0]) + (x[1] && x[1].length ? T(x[1]) : "") + "</li>" : "<li>" + m(x) + "</li>").join("") + "</ul>";
+const sh = a => a.map(x => [Math.random(), x]).sort((x, y) => x[0] - y[0]).map(x => x[1]);
+
+/* ====== THEME ====== */
+const $root = document.documentElement;
+const $themeBtn = document.getElementById("themeBtn");
+let savedTheme = "";
+try { savedTheme = localStorage.getItem("civTheme") || ""; } catch(e) {}
+function applyTheme(t) {
+  if (t === "dark" || t === "light") $root.setAttribute("data-theme", t);
+  else $root.removeAttribute("data-theme");
+  const isDark = t === "dark" || (!t && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  $themeBtn.textContent = isDark ? "☀️ Luminos" : "🌙 Întunecat";
+}
+applyTheme(savedTheme);
+$themeBtn.addEventListener("click", () => {
+  const isDark = $root.getAttribute("data-theme") === "dark" || (!$root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  savedTheme = isDark ? "light" : "dark";
+  try { localStorage.setItem("civTheme", savedTheme); } catch(e) {}
+  applyTheme(savedTheme);
+});
+
+/* ====== DATA: 30 GRILE EXAMEN (BAROU/INM) ====== */
+const GRILE = [
+  {id:1, blk:"A", speta:false,
+   q:"Cu privire la izvoarele dreptului civil:",
+   opts:[
+     "Uzanțele publicate în culegeri elaborate de către entitățile sau organismele autorizate în domeniu se prezumă că există, până la proba contrară.",
+     "În materiile reglementate prin lege, uzanțele se aplică prioritar față de dispozițiile legale ori de câte ori raportul juridic se leagă între profesioniști.",
+     "În sensul Codului civil, prin uzanțe se înțelege obiceiul (cutuma) și uzurile profesionale."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 1 alin. (5) teza a II-a C. civ. instituie prezumția relativă de existență pentru uzanțele publicate în culegeri elaborate de entitățile sau organismele autorizate.",
+     "Greșit — art. 1 alin. (3) C. civ.: în materiile reglementate prin lege, uzanțele se aplică numai în măsura în care legea trimite în mod expres la acestea, indiferent de calitatea de profesionist.",
+     "Art. 1 alin. (6) C. civ. reproduce fidel definiția legală a uzanțelor."
+   ]},
+  {id:2, blk:"A", speta:false,
+   q:"În legătură cu ierarhia izvoarelor și analogia legii civile:",
+   opts:[
+     "Legile care derogă de la o dispoziție generală, care restrâng exercițiul unor drepturi civile sau care prevăd sancțiuni civile se aplică numai în cazurile expres și limitativ prevăzute de lege.",
+     "Principiile generale ale dreptului se aplică în cazurile neprevăzute de lege numai atunci când nu există nici uzanțe și nici dispoziții legale privitoare la situații asemănătoare.",
+     "În cazurile neprevăzute de lege, dispozițiile legale privitoare la situații asemănătoare au prioritate față de uzanțe."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 10 C. civ. interzice analogia în aceste 3 ipoteze limitative.",
+     "Art. 1 alin. (2) C. civ. plasează principiile generale ale dreptului pe ultima treaptă de subsidiaritate.",
+     "Greșit — ordinea din art. 1 alin. (2) C. civ. este inversă: mai întâi se aplică uzanțele, și abia în lipsa acestora dispozițiile legale privitoare la situații asemănătoare."
+   ]},
+  {id:3, blk:"A", speta:false,
+   q:"Referitor la domeniul de aplicare al Codului civil și prioritatea dreptului Uniunii Europene:",
+   opts:[
+     "În materiile reglementate de Codul civil, normele dreptului Uniunii Europene se aplică prioritar numai dacă cel puțin una dintre părți are calitatea de profesionist.",
+     "Dispozițiile Codului civil nu se aplică raporturilor dintre profesioniști, acestea fiind reglementate exclusiv de legi comerciale speciale.",
+     "Constituie exploatarea unei întreprinderi exercitarea sistematică, de către una sau mai multe persoane, a unei activități organizate constând în producerea, administrarea ori înstrăinarea de bunuri sau în prestarea de servicii, indiferent dacă are sau nu un scop lucrativ."
+   ],
+   cor:[2],
+   exp:[
+     "Greșit — art. 5 C. civ.: normele dreptului UE se aplică prioritar indiferent de calitatea sau statutul părților.",
+     "Greșit — art. 3 alin. (1) C. civ. consacră concepția monistă: Codul civil se aplică și raporturilor dintre profesioniști, precum și celor dintre aceștia și orice alte subiecte de drept civil.",
+     "Art. 3 alin. (3) C. civ. — scopul lucrativ nu este o condiție pentru existența întreprinderii."
+   ]},
+  {id:4, blk:"A", speta:true,
+   q:"X și Y au încheiat un contract de vânzare în anul 2024. În anul 2025 intră în vigoare o lege civilă nouă care elimină o cauză de nulitate relativă existentă la data încheierii contractului și modifică regimul efectelor vânzării. În lipsa unor dispoziții tranzitorii derogatorii:",
+   opts:[
+     "Contractul încheiat în 2024 devine valabil de la data intrării în vigoare a legii noi, ca efect al aplicării imediate a acesteia.",
+     "Contractul din 2024 rămâne supus legii în vigoare la data încheierii sale în privința efectelor pe care le generează.",
+     "Legea civilă nouă se aplică retroactiv contractului din 2024 dacă este mai favorabilă debitorului."
+   ],
+   cor:[1],
+   exp:[
+     "Greșit — art. 6 alin. (3) C. civ.: actele nule, anulabile sau afectate de alte cauze de ineficacitate rămân supuse legii vechi, neputând deveni valabile sub legea nouă.",
+     "Art. 6 alin. (2) C. civ. și art. 102 alin. (1) LPA consacră ultraactivitatea legii vechi pentru contractele încheiate anterior.",
+     "Greșit — art. 15 alin. (2) din Constituție și art. 6 alin. (1) C. civ. nu recunosc o „lege civilă mai favorabilă” (excepția privește exclusiv legea penală sau contravențională mai favorabilă)."
+   ]},
+  {id:5, blk:"A", speta:false,
+   q:"Cu privire la aplicarea în timp a legii civile:",
+   opts:[
+     "Dispozițiile legii noi sunt aplicabile și efectelor viitoare ale situațiilor juridice născute anterior intrării sale în vigoare, derivate din starea și capacitatea persoanelor, din raporturile de proprietate și din raporturile de vecinătate, dacă aceste situații subzistă după intrarea în vigoare a legii noi.",
+     "Prescripțiile extinctive, decăderile și uzucapiunile începute și neîmplinite la data intrării în vigoare a legii noi sunt supuse legii noi pentru perioada rămasă de curs după intrarea în vigoare a acesteia.",
+     "Potrivit Deciziei în interesul legii nr. 1/2014 a Înaltei Curți de Casație și Justiție, prescripțiile extinctive începute anterior datei de 1 octombrie 2011, împlinite ori neîmplinite la acea dată, rămân supuse dispozițiilor art. 18 din Decretul nr. 167/1958."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 6 alin. (6) C. civ. — aplicarea imediată a legii noi pentru efectele viitoare ale situațiilor juridice legale care subzistă.",
+     "Greșit — art. 6 alin. (4) C. civ.: prescripțiile, decăderile și uzucapiunile începute și neîmplinite rămân supuse în întregime legii vechi.",
+     "Soluția exactă și obligatorie statuată de ICCJ prin Decizia RIL nr. 1/2014."
+   ]},
+  {id:6, blk:"A", speta:false,
+   q:"Referitor la intrarea în vigoare și interpretarea legii civile:",
+   opts:[
+     "Norma civilă interpretativă adoptată de organul emitent produce efecte retroactive, de la data intrării în vigoare a normei interpretate.",
+     "Interpretarea legii de către instanța judecătorească are forță general obligatorie pentru toate cauzele viitoare având același obiect.",
+     "În lipsa unei date ulterioare prevăzute în textul lor, legile și ordonanțele emise de Guvern în baza unei legi speciale de abilitare intră în vigoare la 3 zile de la data publicării în Monitorul Oficial."
+   ],
+   cor:[2],
+   exp:[
+     "Greșit — art. 9 alin. (2) C. civ.: norma interpretativă produce efecte numai pentru viitor.",
+     "Greșit — art. 9 alin. (3) C. civ.: interpretarea legii de către instanță se face numai în scopul aplicării ei în cazul dedus judecății.",
+     "Art. 78 din Constituție și art. 12 alin. (1) din Legea nr. 24/2000."
+   ]},
+  {id:7, blk:"A", speta:false,
+   q:"În materia exercitării drepturilor civile și a efectelor legii civile:",
+   opts:[
+     "Atât renunțarea la un drept, cât și eroarea comună și invincibilă nu se prezumă.",
+     "Dispozițiile privind eroarea comună și invincibilă nu sunt aplicabile în materie de carte funciară și nici în alte materii în care legea reglementează un sistem de publicitate.",
+     "Reținerea abuzului de drept presupune cumulativ intenția de a vătăma pe altul și exercitarea dreptului într-un mod excesiv și nerezonabil."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 13 C. civ. („Renunțarea la un drept nu se prezumă”) și art. 17 alin. (3) C. civ. („Eroarea comună și invincibilă nu se prezumă”).",
+     "Art. 17 alin. (4) C. civ. exclude expres aplicarea erorii comune și invincibile în materia cărții funciare și a altor sisteme de publicitate.",
+     "Greșit — art. 15 C. civ. prevede condiții alternative („ori”, nu cumulativ „și”)."
+   ]},
+  {id:8, blk:"A", speta:false,
+   q:"Privitor la publicitatea drepturilor, actelor și faptelor juridice:",
+   opts:[
+     "Îndeplinirea formalităților de publicitate validează actul juridic anulabil și întrerupe de drept cursul prescripției extinctive.",
+     "În cazul în care un drept, act sau fapt a fost radiat dintr-un registru public, se prezumă că el nu există.",
+     "Dacă un raport juridic este supus în același timp unor formalități de publicitate diferite, îndeplinirea formalității cu caracter mai strict acoperă neefectuarea celeilalte cerințe."
+   ],
+   cor:[1],
+   exp:[
+     "Greșit — art. 20 alin. (3)–(4) C. civ.: publicitatea nu validează dreptul/actul și nu întrerupe cursul prescripției extinctive, afară de cazurile expres prevăzute de lege.",
+     "Art. 21 alin. (2) C. civ. consacră prezumția de inexistență a dreptului radiat.",
+     "Greșit — art. 23 C. civ.: neefectuarea unei cerințe de publicitate nu este acoperită de îndeplinirea alteia."
+   ]},
+  {id:9, blk:"B", speta:false,
+   q:"Cu privire la patrimoniu și capacitatea civilă a persoanei fizice:",
+   opts:[
+     "Persoana fizică poate renunța, prin act autentic notarial, la o parte din capacitatea sa de exercițiu, cu condiția de a-și păstra integral capacitatea de folosință.",
+     "Drepturile copilului conceput sunt recunoscute de la concepțiune, însă numai dacă acesta se naște viu.",
+     "Patrimoniul poate face obiectul unei diviziuni sau al unei afectațiuni numai în cazurile și condițiile prevăzute de lege."
+   ],
+   cor:[1,2],
+   exp:[
+     "Greșit — art. 29 alin. (2) C. civ. interzice absolut renunțarea, în tot sau în parte, la capacitatea de folosință sau de exercițiu.",
+     "Art. 36 C. civ. — capacitatea de folosință anticipată (condiția unică: copilul să se nască viu).",
+     "Art. 31 alin. (2) C. civ."
+   ]},
+  {id:10, blk:"B", speta:false,
+   q:"În materia dobândirii capacității depline de exercițiu înainte de împlinirea vârstei de 18 ani:",
+   opts:[
+     "Pentru motive temeinice, instanța de tutelă poate recunoaște minorului care a împlinit vârsta de 16 ani capacitatea deplină de exercițiu, după ascultarea părinților sau a tutorelui și luarea, când este cazul, a avizului consiliului de familie.",
+     "În cazul în care căsătoria minorului este anulată, acesta păstrează capacitatea deplină de exercițiu indiferent dacă a fost de bună-credință sau de rea-credință la încheierea căsătoriei.",
+     "Capacitatea de exercițiu anticipată la vârsta de 16 ani poate fi recunoscută minorului și pe cale notarială, cu acordul expres al ambilor părinți."
+   ],
+   cor:[0],
+   exp:[
+     "Art. 40 C. civ. — reproduce integral condițiile capacității de exercițiu anticipate.",
+     "Greșit — art. 39 alin. (2) C. civ.: în caz de anulare a căsătoriei, păstrează capacitatea deplină numai minorul care a fost de bună-credință.",
+     "Greșit — art. 40 conferă competență exclusivă instanței de tutelă, nu notarului public."
+   ]},
+  {id:11, blk:"B", speta:false,
+   q:"Potrivit Codului civil actualizat prin Legea nr. 140/2022, cu privire la capacitatea de exercițiu a persoanei fizice:",
+   opts:[
+     "Au capacitate de exercițiu restrânsă minorul care a împlinit vârsta de 14 ani și persoana care beneficiază de consiliere judiciară.",
+     "Persoana cu capacitate de exercițiu restrânsă poate face singură acte de conservare, acte de administrare care nu o prejudiciază, precum și acte de dispoziție de mică valoare, cu caracter curent și care se execută la data încheierii lor.",
+     "Persoana cu privire la care a fost instituită curatela din cauza bătrâneții sau a unei infirmități fizice este lipsită de capacitate de exercițiu."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 41 alin. (1) și (1¹) C. civ., astfel cum a fost modificat prin Legea nr. 140/2022.",
+     "Art. 41 alin. (3) C. civ. enumeră exact aceste trei categorii de acte permise singur.",
+     "Greșit — art. 181 C. civ.: curatela lasă intactă capacitatea de exercițiu (lipsiți sunt minorul sub 14 ani și cel sub tutelă specială, art. 43)."
+   ]},
+  {id:12, blk:"B", speta:false,
+   q:"Cu privire la măsurile de ocrotire a persoanei fizice majore:",
+   opts:[
+     "Asistența pentru încheierea actelor juridice, instituită la notar pentru cel mult 2 ani, are ca efect restrângerea capacității de exercițiu a persoanei ocrotite.",
+     "Curatela instituită pentru lipsă îndelungată de la domiciliu încetează de drept din momentul în care dispare cauza care a determinat instituirea ei, fără intervenția instanței.",
+     "Consilierea judiciară se dispune pentru o perioadă ce nu poate depăși 3 ani, iar tutela specială pentru cel mult 5 ani, cu posibilitatea prelungirii până la 15 ani în cazul deteriorării permanente a facultăților mintale."
+   ],
+   cor:[2],
+   exp:[
+     "Greșit — asistența pentru încheierea actelor juridice (Legea 140/2022) lasă capacitatea de exercițiu neatinsă.",
+     "Greșit — art. 185 C. civ.: curatela obișnuită trebuie ridicată de instanța de tutelă (doar curatorul special din art. 167 încetează de drept la respingerea cererii).",
+     "Art. 168 C. civ. (Legea nr. 140/2022) — duratele maxime exacte."
+   ]},
+  {id:13, blk:"B", speta:true,
+   q:"A, minor necăsătorit în vârstă de 16 ani (fără capacitate de exercițiu anticipată), îi vinde lui B (major, capabil) o bicicletă profesională în valoare de 8.000 lei, fără încuviințarea părinților, declarând simplu, verbal, că a împlinit 18 ani. În această situație:",
+   opts:[
+     "Contractul de vânzare este lovit de nulitate relativă, chiar fără dovedirea unui prejudiciu, simpla declarație a lui A neînlăturând anulabilitatea.",
+     "B poate introduce acțiunea în anularea contractului invocând incapacitatea lui A.",
+     "A poate invoca și singur, în apărare, anulabilitatea actului pentru încălcarea dispozițiilor legale în materie de capacitate de exercițiu."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 41 alin. (3), art. 44 alin. (1) și art. 45 C. civ.: vânzarea de 8.000 lei nu e de mică valoare, anulabilitatea operează fără prejudiciu, iar simpla declarație nu o înlătură.",
+     "Greșit — art. 46 alin. (3) C. civ.: persoana capabilă de a contracta (B) nu poate opune anulabilitatea și nici exercita acțiunea în anulare.",
+     "Art. 44 alin. (2) C. civ. permite minorului/incapabilului să invoce și singur, în apărare, anulabilitatea."
+   ]},
+  {id:14, blk:"B", speta:false,
+   q:"Referitor la regimul anulabilității actelor încheiate cu încălcarea regulilor de capacitate:",
+   opts:[
+     "Actele juridice încheiate de persoana care beneficiază de tutelă specială (altele decât cele permise de lege sau autorizate) sunt valabile dacă se dovedește că la data încheierii lor aceasta a avut discernământ.",
+     "Dacă cel cu capacitate de exercițiu restrânsă a folosit manopere dolosive pentru a ascunde incapacitatea, instanța, la cererea părții induse în eroare, poate menține contractul atunci când apreciază că aceasta ar constitui o sancțiune civilă adecvată.",
+     "Atunci când actul s-a încheiat fără autorizarea instanței de tutelă necesară potrivit legii, aceasta va sesiza procurorul în vederea exercitării acțiunii în anulare."
+   ],
+   cor:[1,2],
+   exp:[
+     "Greșit — art. 172 alin. (1) C. civ.: actele sunt anulabile (sau prestațiile pot fi reduse) chiar dacă la data încheierii lor persoana ar fi avut discernământ.",
+     "Art. 45 C. civ. — sancțiunea civilă specifică în caz de manopere dolosive ale incapabilului.",
+     "Art. 46 alin. (2) C. civ., în forma modificată prin Legea nr. 140/2022."
+   ]},
+  {id:15, blk:"B", speta:false,
+   q:"Privitor la drepturile personalității și la efectele reapariției celui declarat mort:",
+   opts:[
+     "Orice acte care au ca obiect conferirea unei valori patrimoniale corpului uman, elementelor sau produselor sale sunt lovite de nulitate absolută, cu excepția cazurilor expres prevăzute de lege.",
+     "Moștenitorul aparent care află că persoana declarată decedată prin hotărâre judecătorească este în viață păstrează posesia bunurilor și dobândește fructele acestora, cât timp cel reapărut nu solicită restituirea lor.",
+     "Dacă cel declarat mort este în viață, anularea hotărârii declarative de moarte poate fi cerută numai în termenul general de prescripție de 3 ani de la data reapariției."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 66 C. civ. sancționează cu nulitate absolută patrimonializarea corpului uman, a elementelor sau produselor sale.",
+     "Art. 57 C. civ. privind drepturile moștenitorului aparent.",
+     "Greșit — art. 54 alin. (1) C. civ.: anularea hotărârii declarative de moarte se poate cere oricând."
+   ]},
+  {id:16, blk:"B", speta:false,
+   q:"Cu privire la capacitatea de folosință a persoanei juridice:",
+   opts:[
+     "Persoanele juridice supuse înregistrării dobândesc capacitate de folosință deplină încă de la data semnării actului de înființare, indiferent de data înregistrării.",
+     "Persoanele juridice fără scop lucrativ pot avea doar acele drepturi și obligații civile necesare pentru realizarea scopului stabilit prin lege, actul de constituire sau statut, sancțiunea încălcării acestei reguli fiind nulitatea absolută.",
+     "Actele încheiate în perioada de constituire și preluate ulterior de persoana juridică nou-creată sunt considerate a fi ale acesteia încă de la data încheierii lor și produc efecte depline."
+   ],
+   cor:[1,2],
+   exp:[
+     "Greșit — art. 205 alin. (1) C. civ.: capacitatea de folosință deplină se dobândește de la data înregistrării (anterior există doar capacitate anticipată limitată).",
+     "Art. 206 alin. (2)–(3) C. civ. — principiul specialității se aplică exclusiv persoanelor juridice fără scop lucrativ.",
+     "Art. 205 C. civ. privind preluarea actelor încheiate anterior dobândirii personalității juridice."
+   ]},
+  {id:17, blk:"B", speta:false,
+   q:"În materia activităților autorizate și a capacității de exercițiu a persoanei juridice:",
+   opts:[
+     "O persoană juridică cu scop lucrativ poate avea orice drepturi și obligații civile, afară de acelea care, prin natura lor sau potrivit legii, nu pot aparține decât persoanei fizice.",
+     "Actele și operațiunile săvârșite fără autorizațiile prevăzute de lege pentru desfășurarea activităților care trebuie autorizate sunt lovite de nulitate relativă.",
+     "Persoana juridică își exercită drepturile și își îndeplinește obligațiile prin organele de administrare."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 206 alin. (1) C. civ. — capacitate generală de folosință pentru persoanele juridice cu scop lucrativ.",
+     "Greșit — art. 207 alin. (2) C. civ.: sancțiunea este nulitatea absolută, iar persoanele care le-au făcut răspund nelimitat și solidar.",
+     "Art. 209 C. civ."
+   ]},
+  {id:18, blk:"C", speta:false,
+   q:"Cu privire la drepturile reale și drepturile absolute:",
+   opts:[
+     "Drepturile reale corespunzătoare proprietății publice sunt dreptul de administrare, dreptul de concesiune și dreptul de folosință cu titlu gratuit.",
+     "Dreptul de superficie, dreptul de uzufruct, dreptul de uz, dreptul de abitație și dreptul de servitute fac parte din categoria drepturilor reale.",
+     "În cazul dreptului absolut, subiectul pasiv este determinat încă de la nașterea raportului juridic și are obligația pozitivă de a da sau de a face."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 551 C. civ. — cele trei drepturi reale corespunzătoare proprietății publice.",
+     "Art. 551 C. civ. — dezmembrămintele dreptului de proprietate privată.",
+     "Greșit — la dreptul absolut, subiectul pasiv este nedeterminat și are o obligație generală negativă (de a nu face nimic de natură să aducă atingere dreptului)."
+   ]},
+  {id:19, blk:"C", speta:false,
+   q:"Referitor la drepturile potestative, drepturile de creanță și privilegii:",
+   opts:[
+     "Un drept de creanță nu poate fi niciodată opozabil dobânditorului unui bun, indiferent de formalitățile de publicitate îndeplinite.",
+     "Dreptul de opțiune succesorală și dreptul de denunțare unilaterală a unui contract sunt exemple de drepturi potestative.",
+     "Privilegiul reprezintă preferința acordată prin convenția părților unui creditor în considerarea solvabilității sale."
+   ],
+   cor:[1],
+   exp:[
+     "Greșit — excepție majoră: contractul de locațiune este opozabil dobânditorului bunului în condițiile art. 1811 C. civ.",
+     "Exemplele consacrate în doctrină pentru categoria drepturilor potestative.",
+     "Greșit — art. 2333 alin. (1) C. civ.: privilegiul este preferința acordată de lege unui creditor, nu prin convenția părților."
+   ]},
+  {id:20, blk:"C", speta:false,
+   q:"În legătură cu dreptul de retenție:",
+   opts:[
+     "Dreptul de retenție este opozabil terților fără îndeplinirea vreunei formalități de publicitate.",
+     "Deposedarea involuntară de bun determină stingerea de drept a dreptului de retenție.",
+     "Dreptul de retenție încetează dacă cel interesat consemnează suma pretinsă sau oferă retentorului o garanție suficientă."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 2498 alin. (1) C. civ. — opozabilitate față de terți fără formalități de publicitate.",
+     "Greșit — art. 2499 C. civ.: deposedarea involuntară de bun nu stinge dreptul de retenție.",
+     "Art. 2499 alin. (1) C. civ. — cele două cauze de încetare a retenției."
+   ]},
+  {id:21, blk:"C", speta:false,
+   q:"Privitor la clasificarea obligațiilor civile:",
+   opts:[
+     "În cazul obligației de rezultat, debitorul este ținut să procure creditorului rezultatul promis.",
+     "Obligația simplă este afectată de termen sau condiție și nu poate fi executată imediat.",
+     "Solidaritatea activă intervine atunci când mai mulți debitori sunt obligați față de un singur creditor pentru executarea întregii datorii."
+   ],
+   cor:[0],
+   exp:[
+     "Art. 1481 alin. (1) C. civ. definește obligația de rezultat.",
+     "Greșit — obligația simplă nu este afectată de modalități (termen/condiție) și poate fi executată imediat.",
+     "Greșit — solidaritatea activă presupune mai mulți creditori față de un singur debitor (inversarea rolurilor e capcană clasică)."
+   ]},
+  {id:22, blk:"C", speta:true,
+   q:"V vinde lui C un tablou individual determinat, proprietatea transferându-se la încheierea contractului, iar predarea fiind stabilită peste 10 zile. În ziua a 5-a, înainte de predare și fără ca C să fi fost pus în întârziere, tabloul piere fortuit într-un incendiu. În lipsa unei stipulații contrare în contract:",
+   opts:[
+     "Riscul contractului este suportat de C, întrucât acesta devenise proprietarul tabloului încă de la încheierea contractului.",
+     "Dispoziția legală privind riscul contractului translativ de proprietate are caracter de ordine publică, părțile neputând deroga de la ea prin contract.",
+     "Riscul contractului rămâne în sarcina lui V, ca debitor al obligației de predare, chiar dacă proprietatea a fost transferată lui C."
+   ],
+   cor:[2],
+   exp:[
+     "Greșit — regulă schimbată față de vechiul Cod civil; proprietatea transferată nu mută automat riscul înainte de predare.",
+     "Greșit — art. 1274 alin. (1) debutează cu „În lipsă de stipulație contrară”, fiind o normă supletivă.",
+     "Art. 1274 alin. (1) C. civ.: cât timp bunul nu este predat, riscul rămâne în sarcina debitorului obligației de predare (V)."
+   ]},
+  {id:23, blk:"C", speta:false,
+   q:"Comparând preluarea datoriei cu novația:",
+   opts:[
+     "Spre deosebire de novația prin schimbare de debitor, care stinge obligația veche și dă naștere unei obligații noi, preluarea datoriei realizează transmiterea aceleiași obligații inițiale către un nou debitor.",
+     "Novația produce exclusiv un efect extinctiv, fără a genera o obligație nouă.",
+     "Preluarea datoriei nu beneficiază de o reglementare distinctă în Codul civil, fiind supusă integral regulilor cesiunii de creanță."
+   ],
+   cor:[0],
+   exp:[
+     "Art. 1599–1608 vs. art. 1609 C. civ. — distincția fundamentală între transmiterea obligației și stingerea + crearea unei obligații noi.",
+     "Greșit — novația produce simultan un efect extinctiv și unul creator.",
+     "Greșit — preluarea datoriei are o reglementare autonomă în art. 1599–1608 C. civ."
+   ]},
+  {id:24, blk:"D", speta:false,
+   q:"Cu privire la noțiunea de bun și la categoria bunurilor imobile:",
+   opts:[
+     "Rămân bunuri imobile materialele separate în mod provizoriu de un imobil, pentru a fi din nou întrebuințate, atât timp cât sunt păstrate în aceeași formă.",
+     "Materialele aduse pentru a fi întrebuințate în locul celor vechi devin bunuri imobile din momentul în care au dobândit această destinație.",
+     "În sensul Codului civil, sunt bunuri numai lucrurile corporale care au o existență materială."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 538 alin. (1) C. civ.",
+     "Art. 538 alin. (2) C. civ. — momentul dobândirii caracterului imobiliar este cel al dobândirii destinației.",
+     "Greșit — art. 535 C. civ. include expres atât lucrurile corporale, cât și pe cele necorporale."
+   ]},
+  {id:25, blk:"D", speta:false,
+   q:"Referitor la bunurile mobile și la bunurile mobile prin anticipație:",
+   opts:[
+     "Energia electrică produsă de o hidrocentrală este bun imobil, deoarece sursa de producere (construcția și cursul de apă) are natură imobiliară.",
+     "Bogățiile solului și subsolului, fructele neculese încă, plantațiile și construcțiile încorporate în sol devin mobile prin anticipație atunci când, prin voința părților, sunt privite în natura lor individuală în vederea detașării lor.",
+     "Pentru opozabilitatea față de terți a caracterului de bun mobil prin anticipație este necesară notarea în cartea funciară."
+   ],
+   cor:[1,2],
+   exp:[
+     "Greșit — art. 539 alin. (2) C. civ.: energia de orice fel este bun mobil, indiferent de natura mobiliară sau imobiliară a sursei.",
+     "Art. 540 alin. (1) C. civ. — definiția exactă a bunurilor mobile prin anticipație.",
+     "Art. 540 alin. (2) C. civ. — cerința notării în cartea funciară pentru opozabilitate față de terți."
+   ]},
+  {id:26, blk:"D", speta:false,
+   q:"Privitor la universalitatea de fapt și la regulile aplicabile drepturilor purtând asupra bunurilor:",
+   opts:[
+     "Constituie o universalitate de fapt ansamblul bunurilor care aparțin aceleiași persoane și au o destinație comună stabilită prin voința acesteia sau prin lege.",
+     "Bunurile care alcătuiesc o universalitate de fapt pot face obiectul unor acte juridice numai împreună, ca un tot unitar, nu și separat.",
+     "Dacă nu se prevede altfel, drepturile reale asupra bunurilor imobile sunt supuse regulilor referitoare la bunurile imobile, iar celelalte drepturi patrimoniale sunt supuse, în limitele prevăzute de lege, regulilor referitoare la bunurile mobile."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 541 alin. (1) C. civ.",
+     "Greșit — art. 541 alin. (2) C. civ.: bunurile componente pot face obiectul unor acte juridice împreună sau separat.",
+     "Art. 542 alin. (1) și (2) C. civ."
+   ]},
+  {id:27, blk:"D", speta:false,
+   q:"În materia clasificărilor bunurilor și a rolului voinței părților:",
+   opts:[
+     "Prin act juridic, un bun fungibil prin natura sa poate fi considerat nefungibil, iar un bun divizibil prin natura lui poate fi considerat indivizibil.",
+     "Un bun consumptibil prin natura sa poate deveni neconsumptibil dacă, prin act juridic, i se schimbă întrebuințarea.",
+     "Pot fi bunuri consumptibile atât bunurile mobile, cât și bunurile imobile a căror întrebuințare obișnuită implică înstrăinarea sau consumarea substanței."
+   ],
+   cor:[0,1],
+   exp:[
+     "Art. 543 alin. (3) și art. 545 alin. (3) C. civ.",
+     "Art. 544 alin. (3) C. civ.",
+     "Greșit — art. 544 alin. (2) C. civ. limitează categoria bunurilor consumptibile exclusiv la bunurile mobile."
+   ]},
+  {id:28, blk:"D", speta:true,
+   q:"P, chiriaș al unui apartament ce aparține lui O, cumpără din fonduri proprii un aparat de aer condiționat și îl montează în apartament pentru uzul exclusiv al locuinței. Ulterior, O vinde apartamentul lui T, fără mențiuni speciale privind aparatul. În această situație:",
+   opts:[
+     "Aparatul de aer condiționat a devenit bun accesoriu al apartamentului și s-a transmis lui T odată cu bunul principal.",
+     "Aparatul de aer condiționat nu a dobândit calitatea de bun accesoriu al apartamentului, deoarece destinația comună poate fi stabilită numai de proprietarul ambelor bunuri.",
+     "Separarea temporară a unui bun accesoriu (valabil afectat de proprietarul ambelor bunuri) de bunul principal nu îi înlătură calitatea de bun accesoriu."
+   ],
+   cor:[1,2],
+   exp:[
+     "Greșit — P fiind doar chiriaș (nu proprietarul apartamentului), aparatul nu a devenit accesoriu, iar drepturile terților nu pot fi încălcate (art. 546 alin. 2 și 6).",
+     "Art. 546 alin. (2) C. civ.: destinația comună poate fi stabilită numai de proprietarul ambelor bunuri.",
+     "Art. 546 alin. (5) C. civ.: separarea temporară nu înlătură calitatea de bun accesoriu."
+   ]},
+  {id:29, blk:"D", speta:false,
+   q:"Cu privire la produsele bunurilor (fructe și producte):",
+   opts:[
+     "Fructele derivă din folosirea unui bun fără a diminua substanța acestuia, în timp ce productele se obțin cu consumarea substanței bunului.",
+     "Chiriile, arenzile, dobânzile, venitul rentelor și dividendele sunt fructe industriale.",
+     "Potrivit Codului civil, noțiunea de „produsele bunurilor” desemnează atât fructele, cât și productele."
+   ],
+   cor:[0,2],
+   exp:[
+     "Art. 548 alin. (1) și art. 549 C. civ.",
+     "Greșit — art. 548 alin. (4) C. civ.: chiriile, arenzile, dobânzile, venitul rentelor și dividendele sunt fructe civile (venituri).",
+     "Art. 547 C. civ.: „Produsele bunurilor sunt fructele și productele”."
+   ]},
+  {id:30, blk:"D", speta:false,
+   q:"Privitor la dobândirea fructelor și a productelor:",
+   opts:[
+     "Dreptul de proprietate asupra fructelor naturale și industriale se dobândește zi cu zi.",
+     "Dreptul de proprietate asupra fructelor civile se dobândește zi cu zi.",
+     "Ca regulă, fructele și productele se cuvin proprietarului, dacă prin lege nu se dispune altfel."
+   ],
+   cor:[1,2],
+   exp:[
+     "Greșit — art. 550 alin. (2) C. civ.: fructele naturale și industriale se dobândesc la data separării de bunul care le-a produs.",
+     "Art. 550 alin. (3) C. civ.",
+     "Art. 550 alin. (1) C. civ. — regula generală."
+   ]}
+];
+
+/* ====== DATA: 4 MODULE APROFUNDARE ====== */
+const MODS = [
+  {t:"Modul 1 · Legea civilă (Art. 1–24)", html:`
+    <div class="card">
+      <h3>Domeniul Codului civil &amp; Prioritatea dreptului UE</h3>
+      <p><b>Sistemul monist (art. 3):</b> Codul civil se aplică și raporturilor dintre profesioniști, precum și dintre aceștia și alte subiecte. <b>Profesionistul</b> = cel care exploatează o întreprindere (activitate organizată, sistematică), <mark>indiferent dacă are sau nu scop lucrativ</mark>.</p>
+      <p><b>Art. 5 C. civ.:</b> Normele dreptului UE se aplică prioritar în materiile reglementate de Codul civil <mark>indiferent de calitatea sau statutul părților</mark>.</p>
+    </div>
+    <div class="card">
+      <h3>Cascada izvoarelor (Art. 1) &amp; Interzicerea analogiei (Art. 10)</h3>
+      <div class="steps">
+        <div class="step"><b>1. Legea</b> — se aplică prima. În materiile reglementate prin lege, uzanțele se aplică <u>numai</u> dacă legea trimite expres la ele (art. 1 alin. 3).</div>
+        <div class="step"><b>2. Uzanțele</b> (obiceiul/cutuma + uzurile profesionale, conforme ordinii publice și bunelor moravuri) — în cazurile neprevăzute de lege. Cele publicate în culegeri autorizate <b>se prezumă că există</b> până la proba contrară (art. 1 alin. 5).</div>
+        <div class="step"><b>3. Analogia legii</b> — dispoziții legale pentru situații asemănătoare.</div>
+        <div class="step"><b>4. Principiile generale ale dreptului</b> — ultima treaptă subsidiară.</div>
+      </div>
+      <div class="callout"><b>⚠ Filtru Art. 10 (fără analogie):</b> Legile care (1) derogă de la o dispoziție generală, (2) restrâng exercițiul unor drepturi civile sau (3) prevăd sancțiuni civile se aplică <u>numai</u> în cazurile expres și limitativ prevăzute de lege.</div>
+    </div>
+    <div class="card">
+      <h3>Conflictul legilor în timp (Art. 6 C. civ. &amp; RIL 1/2014)</h3>
+      <p class="mut">Legea și ordonanța simplă intră în vigoare la <b>3 zile</b> de la publicare (art. 78 Constituție). În dreptul civil nu există „lege civilă mai favorabilă” (neretroactivitate absolută).</p>
+      <div class="wrap"><table>
+        <tr><th>Situația juridică</th><th>Legea aplicabilă</th><th>Temei &amp; Capcană</th></tr>
+        <tr><td>Acte/fapte anterioare (inclusiv efectele contractelor)</td><td><b>Legea veche</b> (ultraactivitate)</td><td>Art. 6 alin. (2), Art. 102 LPA. <i>Capcană: efectele viitoare ale contractelor NU trec la legea nouă.</i></td></tr>
+        <tr><td>Acte nule, anulabile sau ineficace anterior</td><td><b>Legea veche</b></td><td>Art. 6 alin. (3). <i>Nu devin valabile sub legea nouă.</i></td></tr>
+        <tr><td>Prescripții, decăderi, uzucapiuni începute și neîmplinite</td><td><b>Legea veche – în întregime</b></td><td>Art. 6 alin. (4), <b>Decizia RIL 1/2014 ICCJ</b> (Decretul 167/1958 pt. cele înainte de 1 oct. 2011).</td></tr>
+        <tr><td>Efecte viitoare ale situațiilor legale care subzistă (stare, capacitate, căsătorie, proprietate, vecinătate)</td><td><b>Legea nouă</b> (aplicare imediată)</td><td>Art. 6 alin. (6). <i>Nu extinde la contracte!</i></td></tr>
+      </table></div>
+    </div>
+    <div class="card">
+      <h3>Interpretare, Prezumții, Abuz de drept &amp; Publicitate (Art. 9–23)</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Art. 9:</b> Norma interpretativă produce efecte <mark>numai pentru viitor</mark>. Instanța interpretează doar pentru cazul dedus judecății.</li>
+        <li><b>Prezumții:</b> <u>Se prezumă</u> buna-credință (art. 14), existența dreptului înscris și inexistența dreptului radiat (art. 21). <u>Nu se prezumă</u> renunțarea la un drept (art. 13) și eroarea comună și invincibilă (art. 17 — <mark>inaplicabilă în cartea funciară</mark>).</li>
+        <li><b>Abuzul de drept (art. 15):</b> Condiții <b>alternative („ori”)</b>: scopul de a vătăma/păgubi <b>ori</b> mod excesiv și nerezonabil, contrar bunei-credințe.</li>
+        <li><b>Publicitatea (art. 20, 23):</b> Nu validează actul, nu întrerupe prescripția; îndeplinirea unei formalități nu acoperă neefectuarea alteia.</li>
+      </ul>
+    </div>
+  `},
+  {t:"Modul 2 · Persoanele (PF, PJ & Legea 140/2022)", html:`
+    <div class="card">
+      <h3>Patrimoniu &amp; Capacitatea persoanei fizice (Art. 29–40)</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Art. 29:</b> Nimeni nu poate renunța, în tot sau în parte, la capacitatea de folosință sau de exercițiu.</li>
+        <li><b>Art. 31:</b> Patrimoniul poate fi divizat/afectat numai în cazurile și condițiile legii.</li>
+        <li><b>Art. 36:</b> Drepturile copilului conceput sunt recunoscute de la concepțiune <mark>numai dacă se naște viu</mark>.</li>
+        <li><b>Art. 39–40 (Capacitate deplină anticipată):</b> Prin căsătorie (dacă e anulată, o păstrează <u>numai</u> minorul de bună-credință) sau la <b>16 ani</b>, recunoscută exclusiv de <b>instanța de tutelă</b> (nu notar!) pentru motive temeinice.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Scara măsurilor de ocrotire a majorului (Legea nr. 140/2022)</h3>
+      <p class="mut">Interdicția judecătorească a fost eliminată (Decizia CCR 601/2020) și înlocuită cu măsuri graduale:</p>
+      <div class="scale-grid">
+        <div class="scale-item"><strong>1. Asistență (notar)</strong>Max. 2 ani.<br><mark>Capacitate intactă.</mark></div>
+        <div class="scale-item"><strong>2. Curatelă (art. 178)</strong>Bătrânețe, boală, lipsă.<br><mark>Capacitate intactă.</mark> Ridicată de instanță (art. 185).</div>
+        <div class="scale-item"><strong>3. Consiliere judiciară</strong>Max. <b>3 ani</b>.<br>Capacitate <b>restrânsă</b> (art. 41).</div>
+        <div class="scale-item"><strong>4. Tutelă specială</strong>Max. <b>5 ani</b> (până la <b>15 ani</b>).<br><b>Lipsă</b> de capacitate (art. 43).</div>
+      </div>
+      <div class="callout"><b>⚠ Capcană Curatelă:</b> Curatela obișnuită (art. 178) <u>nu</u> încetează de drept la dispariția cauzei — trebuie ridicată de instanța de tutelă (art. 185). Doar curatorul special numit pe durata procesului (art. 167) încetează de drept la respingerea cererii.</div>
+    </div>
+    <div class="card">
+      <h3>Anulabilitatea actelor (Art. 41, 44–46, 172) &amp; Drepturile personalității</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Acte permise singur (capacitate restrânsă, art. 41 alin. 3):</b> conservare, administrare care nu prejudiciază, dispoziție de mică valoare, curente, executate pe loc.</li>
+        <li><b>Sancțiune (art. 44, 172):</b> Nulitate relativă, <b>chiar fără prejudiciu</b>, iar la consiliere/tutelă specială <mark>chiar dacă persoana a avut discernământ</mark>.</li>
+        <li><b>Invocare (art. 44–46):</b> Incapabilul o poate invoca singur <b>în apărare</b>. Partea capabilă <u>nu</u> poate cere anularea (poate cere doar menținerea + ajustarea prestației). Fără autorizarea instanței de tutelă → aceasta sesizează <b>procurorul</b>.</li>
+        <li><b>Frauda incapabilului (art. 45):</b> Simpla declarație că e capabil nu înlătură anulabilitatea; dacă a folosit <b>manopere dolosive</b>, instanța poate menține contractul.</li>
+        <li><b>Personalitate &amp; Moarte declarată:</b> Patrimonializarea corpului uman = <b>nulitate absolută</b> (art. 66). Anularea hotărârii declarative de moarte se cere <b>oricând</b> (art. 54); moștenitorul aparent păstrează posesia și fructele până la cererea de restituire (art. 57).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Persoana juridică (Art. 205–209)</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Art. 205:</b> Folosință deplină de la <b>înregistrare</b>; capacitate anticipată strict pentru constituire; actele preluate ulterior produc efecte de la data încheierii.</li>
+        <li><b>Art. 206:</b> PJ cu scop lucrativ → capacitate generală. <mark>Principiul specialității</mark> se aplică <b>doar PJ fără scop lucrativ</b> (sancțiune: <b>nulitate absolută</b>).</li>
+        <li><b>Art. 207:</b> Activități fără autorizația legală → <b>nulitate absolută</b> + răspundere nelimitată și solidară.</li>
+        <li><b>Art. 209:</b> Capacitatea de exercițiu se realizează prin <b>organele de administrare</b>.</li>
+      </ul>
+    </div>
+  `},
+  {t:"Modul 3 · Drepturi, Obligații & Garanții", html:`
+    <div class="card">
+      <h3>Drepturi reale (Art. 551), Potestative &amp; Excepții de opozabilitate</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Drepturi reale (art. 551):</b> Proprietatea; dezmembrăminte (superficie, uzufruct, uz, abitație, servitute); drepturi reale ale proprietății publice (<mark>administrare, concesiune, folosință cu titlu gratuit</mark>); garanții reale; alte drepturi prevăzute de lege.</li>
+        <li><b>Drepturi potestative:</b> Puterea de a influența unilateral o situație juridică (ex.: <b>opțiunea succesorală</b>, <b>denunțarea unilaterală</b> a unui contract).</li>
+        <li><b>Creanțe opozabile terților:</b> Contractul de <b>locațiune</b> este opozabil dobânditorului bunului (art. 1811 C. civ.).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Privilegiul (Art. 2333) vs. Dreptul de retenție (Art. 2495–2499)</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Privilegiul:</b> Preferință acordată <b>de lege</b> (nu prin convenție!) unui creditor, indivizibilă.</li>
+        <li><b>Dreptul de retenție:</b> (1) Opozabil terților <mark>fără formalități de publicitate</mark> (art. 2498); (2) Încetează prin consemnarea sumei sau oferirea unei garanții suficiente (art. 2499); (3) <b>Deposedarea involuntară NU îl stinge</b>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Delimitări esențiale în materia obligațiilor</h3>
+      <div class="wrap"><table>
+        <tr><th>Instituție</th><th>Regula Codului civil</th><th>Capcană de examen</th></tr>
+        <tr><td><b>Rezultat vs. Mijloace</b> (art. 1481)</td><td>Rezultat = debitorul procură rezultatul promis. Mijloace = diligența necesară (medicul).</td><td>Neatingerea rezultatului atrage direct sancționarea debitorului.</td></tr>
+        <tr><td><b>Obligație simplă</b></td><td>Nu e afectată de termen sau condiție; se execută imediat.</td><td>Nu o confunda cu obligația afectată de modalități.</td></tr>
+        <tr><td><b>Riscul contractului</b> (art. 1274)</td><td>Până la predare, riscul rămâne la <b>debitorul predării</b>, chiar dacă proprietatea a trecut.</td><td>Normă <b>supletivă</b> („În lipsă de stipulație contrară”). Schimbare față de vechiul Cod!</td></tr>
+        <tr><td><b>Preluarea datoriei vs. Novație</b> (1599 vs. 1609)</td><td>Preluarea transmite <b>aceeași obligație</b>. Novația <b>stinge</b> vechea și <b>creează</b> una nouă.</td><td>Preluarea datoriei are reglementare autonomă (art. 1599–1608).</td></tr>
+        <tr><td><b>Solidaritatea activă</b></td><td>Mai mulți <b>creditori</b>, un singur <b>debitor</b>.</td><td>Capcană frecventă: inversarea cu solidaritatea pasivă (mai mulți debitori).</td></tr>
+      </table></div>
+    </div>
+  `},
+  {t:"Modul 4 · Bunurile (Art. 535–550)", html:`
+    <div class="card">
+      <h3>Noțiune, Imobile, Mobile &amp; Universalitate de fapt (Art. 535–542)</h3>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><b>Art. 535:</b> Bun = lucru <b>corporal sau necorporal</b>, obiect al unui drept patrimonial.</li>
+        <li><b>Art. 538 (Imobile):</b> Materialele separate provizoriu spre refolosire rămân imobile; cele aduse spre înlocuire devin imobile <mark>din momentul dobândirii destinației</mark>.</li>
+        <li><b>Art. 539 (Mobile):</b> Undele și <b>energia de orice fel</b> sunt bunuri mobile, <mark>indiferent de natura imobiliară a sursei</mark> (ex. hidrocentrala).</li>
+        <li><b>Art. 540 (Mobile prin anticipație):</b> Fructe neculese, plantații, construcții privite individual spre detașare; opozabilitate față de terți prin <b>notare în cartea funciară</b>.</li>
+        <li><b>Art. 541 (Universalitate de fapt):</b> Bunuri ale aceluiași proprietar cu destinație comună; pot face obiectul actelor juridice <b>împreună sau separat</b>.</li>
+        <li><b>Art. 542:</b> Drepturile reale asupra imobilelor → reguli imobile; celelalte drepturi patrimoniale → reguli mobile.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Rolul voinței părților &amp; Fructe vs. Producte (Art. 543–550)</h3>
+      <div class="wrap"><table>
+        <tr><th>Clasificare</th><th>Regulă &amp; Voința părților</th><th>Capcană</th></tr>
+        <tr><td><b>Fungibile</b> (543)</td><td>Voința părților: fungibil → <b>nefungibil</b>.</td><td>Doar într-un singur sens.</td></tr>
+        <tr><td><b>Consumptibile</b> (544)</td><td><b>Doar bunuri mobile!</b> Voința: consumptibil → <b>neconsumptibil</b>.</td><td>Imobilele nu sunt consumptibile în sensul art. 544.</td></tr>
+        <tr><td><b>Divizibile</b> (545)</td><td>Voința: divizibil → <b>indivizibil</b>.</td><td>Criteriu: păstrarea destinației la împărțire.</td></tr>
+        <tr><td><b>Accesorii</b> (546)</td><td>Destinația comună stabilită <mark>numai de proprietarul ambelor bunuri</mark>. Separarea temporară nu o înlătură.</td><td>Chiriașul NU poate face un bun accesoriu apartamentului!</td></tr>
+        <tr><td><b>Produse = Fructe + Producte</b> (547–550)</td><td>Fructe (fără diminuarea substanței): naturale &amp; industriale → <b>la separare</b>; civile (chirii, dobânzi, dividende) → <b>zi cu zi</b>.</td><td>Nu confunda fructele civile cu cele industriale!</td></tr>
+      </table></div>
+    </div>
+  `}
+];
+
+/* ====== ORIGINAL DATA: SCHEME, PERECHI, FISE, PLAN, DEFINITII ====== */
 const SC=[
 ["C1 · Introducere",[
 ["**Dreptul** – 3 sensuri",["drept ==obiectiv== = totalitatea normelor","drept ==subiectiv== = prerogativa ta într-un raport concret","==știința== dreptului"]],
@@ -133,25 +767,7 @@ const CA=[
 [7,"Transmiterea proprietății la cert și la de gen (art. 1273)","Cert: la acordul de voință. De gen: la individualizare."],
 [7,"Riscul pieirii fortuite (art. 1274)","Până la predare îl suportă debitorul predării, chiar dacă proprietatea a trecut."]
 ];
-const QZ=[
-["Predarea bunului vândut este obligație:",["de a face","de a da","de a nu face","naturală"]],
-["Subiectul pasiv la dreptul de proprietate este:",["nedeterminat","determinat","statul","doar proprietarul"]],
-["Un copil de 10 ani cumpără o înghețată. Actul este:",["valid (act mic, curent)","nul","valid doar cu acordul părinților","anulabil"]],
-["Aceeași creanță trece la altul prin:",["cesiune de creanță","novație","poprire","stipulație pentru altul"]],
-["Efectele viitoare ale proprietății născute sub legea veche sunt guvernate de:",["legea nouă (art. 6 alin. 6)","legea veche","legea aleasă de instanță","nicio lege"]],
-["O prescripție începută înainte de 2011 este supusă:",["legii vechi","Codului civil actual","legii alese de părți","legii instanței"]],
-["Abuzul de drept privește:",["exercițiul dreptului","existența dreptului","nașterea dreptului","stingerea dreptului"]],
-["Ipoteca este drept real:",["accesoriu","principal","nepatrimonial","potestativ"]],
-["Medicul datorează:",["străduința (mijloace)","vindecarea (rezultat)","a da","propter rem"]],
-["Gajul poate avea ca obiect:",["doar mobile corporale sau titluri materializate","orice bun","doar imobile","doar creanțe"]],
-["Un bun consumptibil poate deveni, prin voința părților:",["neconsumptibil","imobil","indivizibil","accesoriu"]],
-["Fructele civile se dobândesc:",["zi cu zi","la separare","la sfârșitul anului","la plată"]],
-["Normele prohibitive sunt:",["imperative, interzic o conduită","dispozitive, supletive","permisive","doar ale dreptului penal"]],
-["OUG intră în vigoare:",["la publicare, cu depunere prealabilă la Cameră","la 3 zile","după aprobarea Parlamentului","la 30 de zile"]],
-["Care NU este izvor al dreptului civil (art. 1)?",["doctrina","legea","uzanțele","principiile generale"]],
-["Persoana juridică fără scop lucrativ are:",["doar drepturile necesare scopului","orice drepturi","doar drepturi reale","niciun drept"]]
-];
-const PLAN=["Ziua 1: C1 + C2 (scheme, apoi fișe)","Ziua 2: C3 (izvoarele) + test de 10 întrebări","Ziua 3: C4 (legea în timp: art. 6; interpretarea)","Ziua 4: C5 (izvor, absolut/relativ, CSN/NPSP, capacitatea)","Ziua 5: C6 (drepturi, abuz, obligații)","Ziua 6: C7 (cele 10 clasificări) + toate perechile","Ziua 7: doar fișele „Încă nu” + un test, apoi somn"];
+const PLAN=["Ziua 1: C1 + C2 (scheme, apoi fișe)","Ziua 2: C3 (izvoarele) + grilele Blocul A","Ziua 3: C4 (legea în timp: art. 6; interpretarea) + Modul 1","Ziua 4: C5 (izvor, absolut/relativ, CSN/NPSP, capacitatea) + Modul 2 + grilele Blocul B","Ziua 5: C6 (drepturi, abuz, obligații) + Modul 3 + grilele Blocul C","Ziua 6: C7 (cele 10 clasificări) + Modul 4 + grilele Blocul D + toate perechile","Ziua 7: doar fișele „Încă nu” + grilele „Doar greșite” + Mod Test (10 aleatorii), apoi somn"];
 const DEF=[
 [1,"Drept obiectiv (pozitiv)","Totalitatea regulilor de conduită care reglementează relațiile sociale dintre persoane, instituite sau recunoscute de stat și asigurate, la nevoie, prin forța de constrângere a statului; există independent de aplicarea lor la un moment dat."],
 [1,"Drept subiectiv","Facultatea (prerogativa) recunoscută de dreptul obiectiv unei persoane de a avea o anumită conduită și de a pretinde altora o conduită corespunzătoare, cu ajutorul statului la nevoie. Ex.: vânzătorul pretinde prețul."],
@@ -191,7 +807,7 @@ const DEF=[
 [5,"Elementele raportului; determinarea subiectelor","Cumulativ: **părțile**, **conținutul** (drepturi și obligații corelative), **obiectul** (conduita). Drepturi **absolute**: activ determinat, pasiv nedeterminat. **Relative**: activ și pasiv determinați."],
 [5,"Pluralitatea subiectelor","Activă, pasivă sau mixtă. Coproprietate (cote ideale, art. 634) / devălmășie (fără cote, art. 667). Obligații: conjunctă (divizibilă, regula art. 1424), solidară (oricare cere sau plătește tot), indivizibilă (obiect indivizibil)."],
 [5,"Schimbarea creditorului (CSN)","**Cesiunea de creanță** (art. 1566–1592): creditorul transmite creanța unei alte persoane. **Subrogația personală** (1593–1598): terțul plătește și devine creditor. **Novația** (1609): vechea obligație se stinge, e înlocuită cu una nouă."],
-[5,"Schimbarea debitorului (NPSP)","Novația prin schimbare de debitor (art. 1609 alin. 2); preluarea de datorie (1609–1614); stipulația pentru altul (1284); poprirea (creditorul urmărește sumele pe care un terț le datorează debitorului său)."],
+[5,"Schimbarea debitorului (NPSP)","Novația prin schimbare de debitor (art. 1609 alin. 2); preluarea de datorie (1599–1608); stipulația pentru altul (1284); poprirea (creditorul urmărește sumele pe care un terț le datorează debitorului său)."],
 [5,"Capacitatea civilă","Aptitudinea generală de a fi titular de drepturi și obligații civile. **De folosință** (art. 34): de a avea drepturi și obligații. **De exercițiu** (art. 37): de a încheia singur acte juridice civile."],
 [5,"Capacitatea de exercițiu a persoanei fizice","**Deplină**: la 18 ani (art. 38), minorul căsătorit, la 16 ani cu instanța de tutelă (art. 39–40). **Restrânsă** (art. 41): 14–18 ani, consilierea judiciară; actele cu încuviințare prealabilă. **Lipsă** (art. 43): sub 14 ani, tutela specială; actele prin reprezentant legal."],
 [5,"Persoana juridică (art. 187)","Colectivitate cu organizare de sine stătătoare, patrimoniu propriu, afectat unui scop licit și moral, în acord cu interesul general. Folosință de la înregistrare (art. 205); specialitate doar la cele fără scop lucrativ (art. 206 alin. 2); exercițiu prin organele de administrare (art. 209)."],
@@ -224,46 +840,261 @@ const DEF=[
 [7,"Fructe și producte (art. 548–549)","Fructe: produse care derivă din folosirea bunului, fără diminuarea substanței (naturale, industriale, civile). Producte: obținute cu consumarea sau diminuarea substanței."],
 [7,"Sesizabil / insesizabil","Sesizabile: pot fi urmărite silit (regula). Insesizabile: doar în cazurile legii (art. 727 CPC; bunurile proprietate publică, art. 861 C.civ.)."]
 ];
-let K={};try{K=JSON.parse(localStorage.getItem("civK")||"{}")}catch(e){}
-const sv=()=>{try{localStorage.setItem("civK",JSON.stringify(K))}catch(e){}};
-let v="s",dd=0,ci=0,F={c:0,u:0,i:0,s:0},Q=null;
-const sh=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
-const nav=[["s","Scheme"],["d","Definiții"],["p","Perechi"],["f","Fișe"],["q","Test"],["z","Plan"]];
-function deck(){return CA.map((c,i)=>i).filter(i=>(!F.c||CA[i][0]==F.c)&&(!F.u||!K[i]))}
-function newQ(){const l=sh(QZ).slice(0,10).map(q=>({q:q[0],o:sh(q[1].map((t,i)=>[t,i==0]))}));Q={l,i:0,s:0,p:-1}}
-function render(){
- $nav.innerHTML=nav.map(n=>`<button data-a="v" data-v="${n[0]}" class="${v==n[0]?"on":""}">${n[1]}</button>`).join("");
- let h="";
- if(v=="s"){h=`<div class="chips">${SC.map((s,i)=>`<button data-a="c" data-v="${i}" class="${ci==i?"on":""}">C${i+1}</button>`).join("")}</div><h2>${SC[ci][0]}</h2><div class="tree">${T(SC[ci][1])}</div><p class="mut">Galbenul = ce trebuie ținut minte. Acoperă schema și refă-o din memorie.</p>`}
- if(v=="d"){h=`<div class="chips"><button data-a="dd" data-v="0" class="${!dd?"on":""}">Toate</button>${[1,2,3,4,5,6,7].map(i=>`<button data-a="dd" data-v="${i}" class="${dd==i?"on":""}">C${i}</button>`).join("")}<button data-a="da">Deschide tot</button><button data-a="dx">Închide tot</button></div><p class="mut">Spune definiția cu voce tare, apoi deschide termenul și compar-o cu cea de aici.</p>${DEF.filter(d=>!dd||d[0]==dd).map(d=>`<details><summary><b>${d[1]}</b> <span class="mut">C${d[0]}</span></summary><div class="df">${m(d[2])}</div></details>`).join("")}`}
- if(v=="p"){h=`<p class="mut">Cele mai întrebate perechi. Spune cu voce tare diferența înainte să te uiți la a treia coloană.</p><div class="wrap"><table><tr><th>A</th><th>B</th><th>Diferența</th></tr>${PA.map(p=>`<tr><td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td></tr>`).join("")}</table></div>`}
- if(v=="f"){const d=deck(),kn=Object.keys(K).length,pos=d.length?F.i%d.length:0,cur=d[pos];
-  h=`<div class="chips"><button data-a="fc" data-v="0" class="${!F.c?"on":""}">Toate</button>${[1,2,3,4,5,6,7].map(i=>`<button data-a="fc" data-v="${i}" class="${F.c==i?"on":""}">C${i}</button>`).join("")}<button data-a="fu" class="${F.u?"on":""}">Doar „Încă nu”</button><button data-a="fr">Reset</button></div><div class="mut">Știu ${kn} din ${CA.length}</div><div class="bar"><i style="width:${kn/CA.length*100}%"></i></div>`;
-  if(!d.length)h+=`<div class="card">Nicio fișă aici. Toate sunt marcate „Știu” 🎉</div>`;
-  else h+=`<div class="card"><div class="mut">C${CA[cur][0]} · ${pos+1}/${d.length}</div><div class="q">${CA[cur][1]}</div>${F.s?`<div class="a">${CA[cur][2]}</div><div class="row"><button class="ok" data-a="k" data-v="${cur}">Știu</button><button class="no" data-a="n" data-v="${cur}">Încă nu</button></div>`:`<div class="row"><button data-a="s">Arată răspunsul</button></div>`}</div>`}
- if(v=="q"){if(!Q)newQ();
-  if(Q.i>=Q.l.length)h=`<div class="card"><div class="q">Scor: ${Q.s} din ${Q.l.length}</div><p>${Q.s>=9?"Excelent.":Q.s>=6?"Bine. Reia fișele „Încă nu”.":"Mai repetă schemele și perechile, apoi încearcă iar."}</p><div class="row"><button data-a="nq">Test nou</button></div></div>`;
-  else{const x=Q.l[Q.i];h=`<div class="mut">Întrebarea ${Q.i+1}/${Q.l.length}</div><div class="card"><div class="q">${x.q}</div>${x.o.map((o,i)=>`<button class="opt ${Q.p>=0?(o[1]?"ok":i==Q.p?"no":""):""}" data-a="o" data-v="${i}" ${Q.p>=0?"disabled":""}>${o[0]}</button>`).join("")}${Q.p>=0?`<div class="row"><button data-a="nx">Următoarea</button></div>`:""}</div>`}}
- if(v=="z"){h=`<p>Examenul peste o săptămână: câte o parte pe zi, 40–60 de minute.</p>${PLAN.map(p=>`<div class="card">${p}</div>`).join("")}<p class="mut">Regula: în fiecare zi, 10 minute din ce ai făcut ieri, din memorie.</p>`}
- $app.innerHTML=h;
+
+/* ====== STATE & STORAGE ====== */
+let K = {};
+let G_STATE = { wrong: {}, ok: {} };
+try { K = JSON.parse(localStorage.getItem("civK") || "{}"); } catch(e) {}
+try { G_STATE = JSON.parse(localStorage.getItem("civGrile") || '{"wrong":{},"ok":{}}'); } catch(e) {}
+const svK = () => { try { localStorage.setItem("civK", JSON.stringify(K)); } catch(e) {} };
+const svG = () => { try { localStorage.setItem("civGrile", JSON.stringify(G_STATE)); } catch(e) {} };
+
+let v = "g"; // Default active tab: Grile Examen (30)
+let modIdx = 0, ci = 0, dd = 0;
+let F = { c: 0, u: 0, i: 0, s: 0 };
+let G = { filter: "ALL", testMode: false, list: [], idx: 0, sel: [], checked: false, sessionAns: {} };
+
+function buildGrileList() {
+  let arr = GRILE.slice();
+  if (G.testMode) {
+    arr = sh(arr).slice(0, 10);
+  } else if (G.filter === "WRONG") {
+    arr = arr.filter(x => G_STATE.wrong[x.id]);
+  } else if (G.filter !== "ALL") {
+    arr = arr.filter(x => x.blk === G.filter);
+  }
+  G.list = arr;
+  G.idx = 0;
+  G.sel = [];
+  G.checked = false;
+  G.sessionAns = {};
 }
-const $nav=document.getElementById("nav"),$app=document.getElementById("app");
-document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,x=b.dataset.v;
- if(a=="v"){v=x;if(x=="q")Q=null}
- if(a=="c")ci=+x;
- if(a=="dd")dd=+x;
- if(a=="da"){document.querySelectorAll("details").forEach(d=>d.open=true);return}
- if(a=="dx"){document.querySelectorAll("details").forEach(d=>d.open=false);return}
- if(a=="fc"){F.c=+x;F.i=0;F.s=0}
- if(a=="fu"){F.u=F.u?0:1;F.i=0;F.s=0}
- if(a=="fr"){K={};sv();F.i=0;F.s=0}
- if(a=="s")F.s=1;
- if(a=="k"){K[x]=1;sv();F.s=0;if(!F.u)F.i++}
- if(a=="n"){delete K[x];sv();F.s=0;F.i++}
- if(a=="o"){Q.p=+x;if(Q.l[Q.i].o[+x][1])Q.s++}
- if(a=="nx"){Q.i++;Q.p=-1}
- if(a=="nq")newQ();
- render();window.scrollTo({top:0})});
+buildGrileList();
+
+const NAV = [
+  ["g", "Grile Examen (30)"],
+  ["a", "Aprofundare"],
+  ["s", "Scheme"],
+  ["d", "Definiții"],
+  ["p", "Perechi"],
+  ["f", "Fișe"],
+  ["z", "Plan"]
+];
+const LETTERS = ["A", "B", "C"];
+function deck() { return CA.map((c, i) => i).filter(i => (!F.c || CA[i][0] == F.c) && (!F.u || !K[i])); }
+
+/* ====== RENDER ====== */
+const $nav = document.getElementById("nav"), $app = document.getElementById("app");
+function render() {
+  $nav.innerHTML = NAV.map(n => `<button data-a="v" data-v="${n[0]}" class="${v === n[0] ? "on" : ""}">${n[1]}</button>`).join("");
+  let h = "";
+
+  /* TAB 1: GRILE EXAMEN */
+  if (v === "g") {
+    const wrongCount = Object.keys(G_STATE.wrong).length;
+    const answeredCount = Object.keys(G.sessionAns).length;
+    const scoreCount = Object.values(G.sessionAns).filter(x => x.isOk).length;
+    const total = G.list.length;
+
+    h += `<div class="chips">
+      <button data-a="gf" data-v="ALL" class="${!G.testMode && G.filter === "ALL" ? "on" : ""}">Toate (30)</button>
+      <button data-a="gf" data-v="A" class="${!G.testMode && G.filter === "A" ? "on" : ""}">A · Legea civilă (1–8)</button>
+      <button data-a="gf" data-v="B" class="${!G.testMode && G.filter === "B" ? "on" : ""}">B · Persoane (9–17)</button>
+      <button data-a="gf" data-v="C" class="${!G.testMode && G.filter === "C" ? "on" : ""}">C · Drepturi &amp; Obligații (18–23)</button>
+      <button data-a="gf" data-v="D" class="${!G.testMode && G.filter === "D" ? "on" : ""}">D · Bunuri (24–30)</button>
+      <button data-a="gf" data-v="WRONG" class="${!G.testMode && G.filter === "WRONG" ? "on" : ""}">Doar greșite (${wrongCount})</button>
+      <button data-a="gt" class="${G.testMode ? "on" : ""}">🎲 Mod Test (10 aleatorii)</button>
+      <button data-a="gr">Reset progres</button>
+    </div>`;
+
+    if (!total) {
+      h += `<div class="card"><div class="q">Nicio grilă greșită salvată 🎉</div><p class="mut">Toate grilele rezolvate sunt corecte sau nu ai marcat încă erori. Alege „Toate (30)” sau „Mod Test (10 aleatorii)”.</p></div>`;
+    } else {
+      const cur = G.list[G.idx];
+      const savedAns = G.sessionAns[cur.id];
+      const isChecked = !!savedAns;
+      const sel = isChecked ? savedAns.sel : G.sel;
+
+      h += `<div class="row-between mut">
+        <span>Grila <b>${G.idx + 1} / ${total}</b> (nr. ${cur.id}) · Bloc ${cur.blk}</span>
+        <span>Scor sesiune: <b>${scoreCount} / ${answeredCount}</b></span>
+      </div>
+      <div class="bar"><i style="width:${total ? (answeredCount / total * 100) : 0}%"></i></div>`;
+
+      h += `<div class="q-dots">${G.list.map((item, i) => {
+        const sa = G.sessionAns[item.id];
+        const cls = (i === G.idx ? "cur " : "") + (sa ? (sa.isOk ? "d-ok" : "d-no") : "");
+        return `<button class="q-dot ${cls}" data-a="gj" data-v="${i}">${item.id}</button>`;
+      }).join("")}</div>`;
+
+      h += `<div class="card">
+        <div class="row-between" style="margin-bottom:8px">
+          <span class="badge badge-ac">1 sau 2 răspunsuri corecte</span>
+          ${cur.speta ? `<span class="badge badge-speta">⚖️ Mini-speță</span>` : ""}
+        </div>
+        <div class="q">${cur.id}. ${cur.q}</div>
+        <div style="margin-top:10px">
+          ${cur.opts.map((txt, i) => {
+            let cls = "opt";
+            const isSel = sel.includes(i);
+            const isCor = cur.cor.includes(i);
+            if (!isChecked) {
+              if (isSel) cls += " sel";
+            } else {
+              if (isCor && isSel) cls += " ok-sel";
+              else if (isCor && !isSel) cls += " ok-miss";
+              else if (!isCor && isSel) cls += " no-sel";
+            }
+            return `<button class="${cls}" data-a="go" data-v="${i}" ${isChecked ? "disabled" : ""}>
+              <span class="opt-letter">${LETTERS[i]}</span>
+              <span>${txt}</span>
+            </button>`;
+          }).join("")}
+        </div>`;
+
+      if (!isChecked) {
+        h += `<div class="row-between" style="margin-top:14px">
+          <span class="mut">${sel.length ? "Selectat: " + sel.slice().sort().map(i => LETTERS[i]).join(", ") : "Selectează 1 sau 2 variante"}</span>
+          <button class="btn-primary" data-a="gc" ${sel.length === 0 ? "disabled" : ""}>Verifică răspunsul</button>
+        </div>`;
+      } else {
+        const corStr = cur.cor.map(i => LETTERS[i]).join(", ");
+        h += `<div class="verdict ${savedAns.isOk ? "v-ok" : "v-no"}">
+          ${savedAns.isOk ? "Corect! 🎉" : `Greșit — Răspuns corect: ${corStr}`}
+        </div>
+        <div class="exp-box">
+          <div class="mut" style="margin-bottom:6px"><b>Explicații detaliate (toate variantele):</b></div>
+          ${cur.exp.map((ex, i) => {
+            const isCor = cur.cor.includes(i);
+            return `<div class="exp-item ${isCor ? "exp-ok" : "exp-no"}"><b>${LETTERS[i]} (${isCor ? "Corect" : "Greșit"}):</b> ${ex}</div>`;
+          }).join("")}
+        </div>`;
+      }
+
+      h += `<div class="row-between" style="margin-top:14px">
+        <button data-a="gp" ${G.idx === 0 ? "disabled" : ""}>← Înapoi</button>
+        <button class="${isChecked && G.idx < total - 1 ? "btn-primary" : ""}" data-a="gn" ${G.idx >= total - 1 ? "disabled" : ""}>Următoarea →</button>
+      </div></div>`;
+    }
+  }
+
+  /* TAB 2: APROFUNDARE */
+  if (v === "a") {
+    h += `<div class="chips">${MODS.map((md, i) => `<button data-a="am" data-v="${i}" class="${modIdx === i ? "on" : ""}">Modul ${i + 1}</button>`).join("")}</div>
+    <h2>${MODS[modIdx].t}</h2>${MODS[modIdx].html}`;
+  }
+
+  /* TAB 3: SCHEME */
+  if (v === "s") {
+    h = `<div class="chips">${SC.map((s, i) => `<button data-a="c" data-v="${i}" class="${ci === i ? "on" : ""}">C${i + 1}</button>`).join("")}</div>
+    <h2>${SC[ci][0]}</h2><div class="tree">${T(SC[ci][1])}</div>
+    <p class="mut">Galbenul = ce trebuie ținut minte. Acoperă schema și refă-o din memorie.</p>`;
+  }
+
+  /* TAB 4: DEFINITII */
+  if (v === "d") {
+    h = `<div class="chips">
+      <button data-a="dd" data-v="0" class="${!dd ? "on" : ""}">Toate</button>
+      ${[1,2,3,4,5,6,7].map(i => `<button data-a="dd" data-v="${i}" class="${dd === i ? "on" : ""}">C${i}</button>`).join("")}
+      <button data-a="da">Deschide tot</button><button data-a="dx">Închide tot</button>
+    </div>
+    <p class="mut">Spune definiția cu voce tare, apoi deschide termenul și compar-o cu cea de aici.</p>
+    ${DEF.filter(d => !dd || d[0] === dd).map(d => `<details><summary><b>${d[1]}</b> <span class="mut">C${d[0]}</span></summary><div class="df">${m(d[2])}</div></details>`).join("")}`;
+  }
+
+  /* TAB 5: PERECHI */
+  if (v === "p") {
+    h = `<p class="mut">Cele mai întrebate perechi. Spune cu voce tare diferența înainte să te uiți la a treia coloană.</p>
+    <div class="wrap"><table><tr><th>A</th><th>B</th><th>Diferența</th></tr>${PA.map(p => `<tr><td><b>${p[0]}</b></td><td><b>${p[1]}</b></td><td>${p[2]}</td></tr>`).join("")}</table></div>`;
+  }
+
+  /* TAB 6: FISE */
+  if (v === "f") {
+    const d = deck(), kn = Object.keys(K).length, pos = d.length ? F.i % d.length : 0, cur = d[pos];
+    h = `<div class="chips">
+      <button data-a="fc" data-v="0" class="${!F.c ? "on" : ""}">Toate</button>
+      ${[1,2,3,4,5,6,7].map(i => `<button data-a="fc" data-v="${i}" class="${F.c === i ? "on" : ""}">C${i}</button>`).join("")}
+      <button data-a="fu" class="${F.u ? "on" : ""}">Doar „Încă nu”</button>
+      <button data-a="fr">Reset</button>
+    </div>
+    <div class="mut">Știu <b>${kn}</b> din ${CA.length}</div>
+    <div class="bar"><i style="width:${kn / CA.length * 100}%"></i></div>`;
+    if (!d.length) h += `<div class="card">Nicio fișă aici. Toate sunt marcate „Știu” 🎉</div>`;
+    else h += `<div class="card"><div class="mut">C${CA[cur][0]} · ${pos + 1}/${d.length}</div><div class="q">${CA[cur][1]}</div>${F.s ? `<div class="a">${CA[cur][2]}</div><div class="row"><button class="ok" data-a="k" data-v="${cur}">Știu</button><button class="no" data-a="n" data-v="${cur}">Încă nu</button></div>` : `<div class="row"><button class="btn-primary" data-a="s">Arată răspunsul</button></div>`}</div>`;
+  }
+
+  /* TAB 7: PLAN + METODA DE ANTRENAMENT */
+  if (v === "z") {
+    h = `<h2>📅 Plan de 7 zile</h2>
+    <p class="mut">Câte o parte pe zi, 40–60 de minute. Regula: în fiecare zi, 10 minute din ce ai făcut ieri, din memorie.</p>
+    ${PLAN.map(p => `<div class="card" style="padding:12px 14px;margin:8px 0">${p}</div>`).join("")}
+    <h2>🎯 Metodă practică de antrenament pentru examen</h2>
+    <div class="steps">
+      <div class="step"><b>1. Disecția prin 6 întrebări-cheie:</b> Pentru fiecare instituție (ex. tutela specială, art. 6, bunul accesoriu), verifică fără cod: (i) ipoteza, (ii) condițiile cumulative/alternative, (iii) excepții/limite, (iv) cine invocă/constată, (v) efectul/sancțiunea, (vi) cu ce se confundă.</div>
+      <div class="step"><b>2. Separă „ghicit” de „justificat”:</b> Nu te mulțumi cu scorul; dacă nu poți indica regula care infirmă varianta falsă, tratează grila ca greșită.</div>
+      <div class="step"><b>3. Retestare spațiată (48h &amp; 7 zile):</b> Reia filtrul „Doar greșite” și schimbă mental un detaliu din mini-spețe (ex. la Grila 13: ce se întâmplă dacă minorul folosea manopere dolosive?).</div>
+    </div>
+    <div class="callout">
+      <b>🚨 Radarul celor 5 cuvinte-capcană în examen:</b><br>
+      1. <b>„și” vs. „ori”</b> (ex. abuzul de drept, art. 15 — condiții alternative);<br>
+      2. <b>Tipul nulității</b> (absolută la art. 66, 206, 207 vs. relativă la art. 44);<br>
+      3. <b>Prezumții</b> (se prezumă vs. nu se prezumă: art. 13, 14, 17, 21);<br>
+      4. <b>Organul competent</b> (instanța de tutelă vs. notarul public la art. 40 și Legea 140/2022);<br>
+      5. <b>Adverbe absolute</b> („numai”, „niciodată”, „în toate cazurile”).
+    </div>`;
+  }
+
+  $app.innerHTML = h;
+}
+
+/* ====== EVENTS ====== */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-a]");
+  if (!b) return;
+  const a = b.dataset.a, x = b.dataset.v;
+
+  if (a === "v") { v = x; window.scrollTo({ top: 0 }); }
+  /* Grile events */
+  if (a === "gf") { G.testMode = false; G.filter = x; buildGrileList(); }
+  if (a === "gt") { G.testMode = !G.testMode; buildGrileList(); }
+  if (a === "gr") { G_STATE = { wrong: {}, ok: {} }; svG(); buildGrileList(); }
+  if (a === "gj") { G.idx = +x; G.sel = []; }
+  if (a === "go") {
+    const idx = +x;
+    const pos = G.sel.indexOf(idx);
+    if (pos >= 0) G.sel.splice(pos, 1);
+    else if (G.sel.length < 2) G.sel.push(idx);
+    else { G.sel.shift(); G.sel.push(idx); }
+  }
+  if (a === "gc") {
+    const cur = G.list[G.idx];
+    const selSorted = G.sel.slice().sort();
+    const corSorted = cur.cor.slice().sort();
+    const isOk = selSorted.length === corSorted.length && selSorted.every((val, i) => val === corSorted[i]);
+    G.sessionAns[cur.id] = { sel: selSorted, isOk };
+    if (isOk) { G_STATE.ok[cur.id] = 1; delete G_STATE.wrong[cur.id]; }
+    else { G_STATE.wrong[cur.id] = 1; delete G_STATE.ok[cur.id]; }
+    svG();
+  }
+  if (a === "gp" && G.idx > 0) { G.idx--; G.sel = []; window.scrollTo({ top: 0 }); }
+  if (a === "gn" && G.idx < G.list.length - 1) { G.idx++; G.sel = []; window.scrollTo({ top: 0 }); }
+
+  /* Aprofundare / Scheme / Definitii / Fise */
+  if (a === "am") { modIdx = +x; window.scrollTo({ top: 0 }); }
+  if (a === "c") ci = +x;
+  if (a === "dd") dd = +x;
+  if (a === "da") { document.querySelectorAll("details").forEach(d => d.open = true); return; }
+  if (a === "dx") { document.querySelectorAll("details").forEach(d => d.open = false); return; }
+  if (a === "fc") { F.c = +x; F.i = 0; F.s = 0; }
+  if (a === "fu") { F.u = F.u ? 0 : 1; F.i = 0; F.s = 0; }
+  if (a === "fr") { K = {}; svK(); F.i = 0; F.s = 0; }
+  if (a === "s") F.s = 1;
+  if (a === "k") { K[x] = 1; svK(); F.s = 0; if (!F.u) F.i++; }
+  if (a === "n") { delete K[x]; svK(); F.s = 0; F.i++; }
+
+  render();
+});
+
 render();
 </script>
 </body>
